@@ -1,0 +1,38 @@
+{
+  "semantle": {
+    "id": "semantle",
+    "name": "꼬맨틀",
+    "root": "components/harness/semantle/app",
+    "entry": "server.mjs",
+    "factory": "createAppServer",
+    "port": 4175,
+    "settleMs": 120
+  },
+  "gomoku": {
+    "id": "gomoku",
+    "name": "오목",
+    "root": "components/harness/gomoku/app",
+    "entry": "server.mjs",
+    "factory": "createAppServer",
+    "port": 4176,
+    "settleMs": 120
+  },
+  "2048": {
+    "id": "2048",
+    "name": "2048",
+    "root": "components/harness/2048/app",
+    "entry": "server.mjs",
+    "factory": "createAppServer",
+    "port": 4177,
+    "settleMs": 120
+  },
+  "earth-explorer": {
+    "id": "earth-explorer",
+    "name": "지구 탐험",
+    "root": "components/harness/earth-explorer/app",
+    "entry": "server.mjs",
+    "factory": "createAppServer",
+    "port": 4178,
+    "settleMs": 120
+  }
+}

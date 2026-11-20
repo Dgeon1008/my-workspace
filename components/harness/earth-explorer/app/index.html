@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light dark"><title>지구 탐험 · 모아</title><link rel="stylesheet" href="/style.css"><script type="module" src="/app.js"></script></head>
+<body><main class="atlas-app">
+  <header class="atlas-toolbar">
+    <a class="atlas-brand" href="#" aria-label="지구 탐험 시작 화면"><span class="brand-orbit"><i></i></span><span><strong>지구 탐험</strong><small>MOA ATLAS · INTERACTIVE EARTH</small></span></a>
+    <form id="search-form" class="place-search" role="search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 5 5"/></svg><label class="sr-only" for="place-query">도시 또는 장소 검색</label><input id="place-query" list="place-suggestions" placeholder="도시를 찾아보세요 · 예: 서울, 파리" autocomplete="off"><datalist id="place-suggestions"></datalist><button type="submit">찾기</button></form>
+    <div class="toolbar-actions"><button id="rotate-toggle" class="tool-button" type="button" aria-pressed="false" title="자동 회전 켜기"><span class="spin-icon">⟳</span><span class="rotate-label">회전 시작</span></button><span class="toolbar-divider"></span><button id="zoom-out" class="tool-button icon-only" type="button" aria-label="지구본 축소" title="축소">−</button><button id="zoom-in" class="tool-button icon-only" type="button" aria-label="지구본 확대" title="확대">＋</button><button id="reset-view" class="tool-button reset-button" type="button" title="서울 중심으로 돌아가기"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 10a7.6 7.6 0 1 1 .7 5.2M4 4.8v5.5h5.5"/><circle cx="12" cy="12" r="2.5"/></svg><span>처음으로</span></button></div>
+  </header>
+  <div class="atlas-layout">
+    <section id="globe-stage" class="globe-stage" aria-label="드래그해서 지구본을 회전하고 휠로 확대하거나 축소하세요">
+      <div class="space-glow" aria-hidden="true"></div>
+      <canvas id="globe-canvas" aria-label="회전하고 확대할 수 있는 3D 지구본"></canvas>
+      <div id="geo-labels" class="geo-label-layer" aria-hidden="true"></div>
+      <div id="markers" class="marker-layer" aria-label="주요 도시"></div>
+      <div class="stage-topline"><span class="live-indicator"></span><span>EARTH / 3D ATLAS</span><span class="stage-topline-separator"></span><span>국가 경계 · 강 · 산맥</span></div>
+      <div class="stage-instructions"><span class="mouse-glyph">⤧</span> 드래그하여 회전 <i></i> 휠 또는 + / − 로 확대</div>
+      <div class="stage-coordinates"><span class="coordinate-cross">⌖</span><div><small>현재 선택 위치</small><strong id="stage-place">서울 · 대한민국</strong></div><span class="coordinate-divider"></span><code id="stage-coords">37.57° N&nbsp;&nbsp; 126.98° E</code></div>
+      <div class="fallback-message" id="fallback-message" hidden>이 브라우저에서 3D 그래픽을 사용할 수 없습니다.</div>
+    </section>
+    <aside class="explore-panel">
+      <div class="panel-heading"><div><p class="panel-kicker">EXPLORE THE WORLD</p><h1>어디로 떠나볼까요<span>.</span></h1><p>도시를 고르면 지구본이 그곳으로 날아갑니다.</p></div><span class="compass-mark" aria-hidden="true">N</span></div>
+      <section class="selected-place" aria-live="polite" aria-labelledby="place-name">
+        <div class="selected-top"><span class="selected-tag"><i></i> 선택한 장소</span><span id="place-region" class="place-region">대한민국 · 동아시아</span></div>
+        <h2 id="place-name">서울</h2><p id="place-summary">산과 강, 오래된 골목과 높은 빌딩이 함께 이어지는 도시.</p>
+        <div class="place-coordinates"><span>위도·경도</span><code id="place-coords">37.5665° N&nbsp;&nbsp; 126.9780° E</code></div>
+      </section>
+      <div class="places-heading"><div><span>가까운 곳부터 둘러보기</span><small id="places-count">12 PLACES</small></div><span class="places-rule"></span></div>
+      <nav id="place-list" class="place-list" aria-label="둘러볼 도시"></nav>
+      <div class="panel-footnote"><span class="footnote-icon">✦</span><p>국가 경계와 주요 강·산맥을 표시했어요. 확대하면 지명이 단계별로 나타납니다.<br><a class="source-credit" href="https://www.naturalearthdata.com/downloads/50m-cultural-vectors/" target="_blank" rel="noreferrer">국가 자료 ↗</a> · <a class="source-credit" href="https://www.naturalearthdata.com/downloads/50m-physical-vectors/" target="_blank" rel="noreferrer">지형 자료 ↗</a><span class="source-note"> · Natural Earth 1:50m · 위성 사진은 미포함</span></p></div>
+    </aside>
+  </div>
+</main></body></html>

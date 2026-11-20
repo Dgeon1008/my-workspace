@@ -1,0 +1,12 @@
+{
+  "name": "kkomantle-recreation",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "start": "node ../../../../scripts/harness-project.mjs --project semantle",
+    "dev": "node ../../../../scripts/harness-project.mjs --project semantle",
+    "test": "node --test --test-isolation=none tests/*.test.mjs"
+  }
+}

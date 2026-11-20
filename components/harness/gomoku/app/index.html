@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light dark"><title>오목 · 모아</title><link rel="stylesheet" href="/style.css"><script type="module" src="/game.js"></script></head>
+<body><main class="game-shell">
+  <header class="game-heading"><div><p class="eyebrow">MOA PLAYROOM / 02</p><h1>한 수, 그리고 다음 수<span>.</span></h1><p class="subtitle">잠깐 쉬어가는 오목 한 판.</p></div><span class="rule-chip">15 × 15 · 자유룰</span></header>
+  <div class="game-layout"><section class="board-panel" aria-label="오목 경기">
+    <div class="board-top"><span class="live-dot"></span><strong id="status" role="status" aria-live="polite">흑돌 차례</strong><span id="move-count">0수</span></div>
+    <div class="board-wrap"><div id="board" class="board" role="grid" aria-label="15행 15열 오목판"></div></div>
+    <div class="board-bottom"><span id="turn-caption">가로·세로·대각선으로 돌 5개를 이어보세요.</span><span id="last-move">첫 수를 놓아주세요</span></div>
+  </section>
+  <aside class="game-aside">
+    <section class="control-card"><p class="section-label">YOUR GAME</p><h2>오늘은 누구와 둘까요?</h2>
+      <div class="segmented" role="group" aria-label="대전 방식"><button id="mode-ai" type="button" aria-pressed="true">컴퓨터 대전</button><button id="mode-local" type="button" aria-pressed="false">2인 대전</button></div>
+      <label class="side-label" for="human-color">내 돌</label><select id="human-color"><option value="1">흑돌 · 먼저 두기</option><option value="2">백돌 · 나중에 두기</option></select>
+      <div class="players"><div id="black-player"><i class="stone-icon black"></i><div><strong>흑돌</strong><small id="black-label">나 · 선공</small></div><span class="turn-label">차례</span></div><div id="white-player"><i class="stone-icon white"></i><div><strong>백돌</strong><small id="white-label">컴퓨터 · 후공</small></div><span class="turn-label">차례</span></div></div>
+      <div class="game-actions"><button id="undo" type="button">↶ 한 수 무르기</button><button id="new-game" type="button">새 게임 시작</button></div><p id="notice" role="status" class="notice"></p>
+    </section>
+    <section class="rules-card"><p class="section-label">HOW TO PLAY</p><h2>단순한 규칙, 깊은 한 수.</h2><ul><li>흑돌이 먼저 시작하고 번갈아 둡니다.</li><li>가로·세로·대각선으로 5개 이상 이어지면 승리합니다.</li><li>금수 없는 자유룰입니다. 쌍삼·쌍사·장목을 허용합니다.</li></ul><div class="save-note"><span></span>진행 중인 판은 자동으로 저장됩니다.</div></section>
+    <details class="history-card"><summary>이번 판 기록 <span id="history-count">0</span></summary><ol id="history"></ol></details>
+  </aside></div>
+  <footer>빠르게 두기보다, 한 수 더 생각하기.<span>GOMOKU / MOA</span></footer>
+</main>
+<dialog id="new-dialog" aria-labelledby="new-dialog-title"><h2 id="new-dialog-title">새로운 판을 시작할까요?</h2><p>진행 중인 판을 끝내고 선택한 설정으로 시작합니다.</p><div class="dialog-actions"><button id="cancel-new" type="button">계속 두기</button><button id="confirm-new" type="button">새 게임</button></div></dialog>
+</body></html>

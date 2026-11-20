@@ -1,0 +1,13 @@
+{
+  "id": "unk_b4cc4d1db74fc337",
+  "revision": 1,
+  "question": "Live similarity API and current puzzle answer are absent from the supplied clean-room evidence.",
+  "severity": "medium",
+  "domain": "gameplay",
+  "status": "open",
+  "probes": [
+    "Connect an authorized live scoring service in a future task; current build explicitly uses captured public puzzle 1692 data as practice."
+  ],
+  "evidence_for": [],
+  "evidence_against": []
+}

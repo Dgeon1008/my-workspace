@@ -1,0 +1,45 @@
+{
+  "id": "ev_265cbf59543f5c6a1415488a9cf59cb1e8e468717e6d9cc3f0593805b8c7bc4b",
+  "subject": {
+    "kind": "website",
+    "name": "https://semantle-ko.newsjel.ly/"
+  },
+  "operation": "web_page_states_capture",
+  "params": {
+    "max_states": 4,
+    "width": 1440
+  },
+  "result": {
+    "folder": "C:\\Users\\FORYOUCOM\\Desktop\\my-workspace\\components\\harness\\semantle\\capture\\states",
+    "found": 0,
+    "states": [],
+    "url": "https://semantle-ko.newsjel.ly/"
+  },
+  "summary": "https://semantle-ko.newsjel.ly/ has no menus, pop-ups, tabs or collapsed sections to open.",
+  "confidence": "observed",
+  "authority": "our-run",
+  "environment": {
+    "clean_room": true,
+    "engine": "cdp",
+    "engine_version": "1.3",
+    "host": "windows-x86_64"
+  },
+  "limitations": [
+    {
+      "code": "first_controls",
+      "message": "Only the first controls found are opened, one at a time; menus inside menus and hover-only menus are not."
+    }
+  ],
+  "coverage": {
+    "status": "complete",
+    "examined": 0,
+    "total": 0
+  },
+  "locations": [
+    {
+      "kind": "url",
+      "value": "https://semantle-ko.newsjel.ly/"
+    }
+  ],
+  "links": []
+}

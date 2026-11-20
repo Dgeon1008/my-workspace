@@ -1,0 +1,1195 @@
+{
+  "a11y": {
+    "images_without_alt": 0,
+    "landmarks": {
+      "banner": 1,
+      "contentinfo": 1,
+      "main": 1
+    },
+    "lang": "ko",
+    "unnamed_controls": 0,
+    "unnamed_examples": []
+  },
+  "assets": {
+    "images": [
+      {
+        "h": 29,
+        "w": 29
+      },
+      {
+        "h": 45,
+        "w": 507
+      }
+    ]
+  },
+  "design": {
+    "backgrounds": [
+      {
+        "count": 2,
+        "value": "#ffffff"
+      },
+      {
+        "count": 2,
+        "value": "#f0f0f0"
+      }
+    ],
+    "font_sizes": [
+      {
+        "count": 45,
+        "value": "16px"
+      },
+      {
+        "count": 3,
+        "value": "14px"
+      },
+      {
+        "count": 2,
+        "value": "14.4px"
+      },
+      {
+        "count": 1,
+        "value": "32px"
+      },
+      {
+        "count": 1,
+        "value": "0px"
+      },
+      {
+        "count": 1,
+        "value": "24px"
+      }
+    ],
+    "font_weights": [
+      {
+        "count": 29,
+        "value": "400"
+      },
+      {
+        "count": 14,
+        "value": "700"
+      },
+      {
+        "count": 10,
+        "value": "500"
+      }
+    ],
+    "fonts": [
+      {
+        "count": 53,
+        "value": "Pretendard, system-ui, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\""
+      }
+    ],
+    "max_widths": [
+      {
+        "count": 1,
+        "value": "600px"
+      }
+    ],
+    "radii": [
+      {
+        "count": 3,
+        "value": "6px"
+      },
+      {
+        "count": 1,
+        "value": "0px 6px 6px 0px"
+      }
+    ],
+    "shadows": [],
+    "spacing": [
+      {
+        "count": 18,
+        "value": "8px"
+      },
+      {
+        "count": 14,
+        "value": "24px"
+      },
+      {
+        "count": 12,
+        "value": "14px"
+      },
+      {
+        "count": 11,
+        "value": "40px"
+      },
+      {
+        "count": 4,
+        "value": "12px"
+      },
+      {
+        "count": 4,
+        "value": "10px"
+      },
+      {
+        "count": 2,
+        "value": "21.44px"
+      },
+      {
+        "count": 2,
+        "value": "6px"
+      },
+      {
+        "count": 1,
+        "value": "7px"
+      },
+      {
+        "count": 1,
+        "value": "20px"
+      },
+      {
+        "count": 1,
+        "value": "48px"
+      },
+      {
+        "count": 1,
+        "value": "100px"
+      }
+    ],
+    "text_colors": [
+      {
+        "count": 43,
+        "value": "#000000"
+      },
+      {
+        "count": 9,
+        "value": "#421ddb"
+      },
+      {
+        "count": 1,
+        "value": "#999999"
+      }
+    ]
+  },
+  "forms": [
+    {
+      "action": "",
+      "fields": [
+        {
+          "label": "추측할 단어",
+          "name": "",
+          "placeholder": "추측할 단어를 입력하세요",
+          "required": true,
+          "tag": "input",
+          "type": "text"
+        },
+        {
+          "label": "",
+          "name": "",
+          "placeholder": "",
+          "required": false,
+          "tag": "button",
+          "type": "submit"
+        }
+      ],
+      "method": "get"
+    }
+  ],
+  "headings": [
+    {
+      "level": 1,
+      "text": "꼬맨틀 - 단어 유사도 추측 게임"
+    },
+    {
+      "level": 2,
+      "text": "질문과 답변"
+    },
+    {
+      "level": 2,
+      "text": "설정"
+    },
+    {
+      "level": 2,
+      "text": "포기하시겠습니까?"
+    }
+  ],
+  "lang": "ko",
+  "layouts": [
+    {
+      "blocks": [
+        {
+          "h": 52,
+          "pad": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "per_row": 1,
+          "tag": "header",
+          "w": 1425,
+          "y": 0
+        },
+        {
+          "column": {
+            "max_w": 600,
+            "pad": [
+              8,
+              8
+            ],
+            "w": 600,
+            "x": 413
+          },
+          "h": 2783,
+          "heading": "꼬맨틀 - 단어 유사도 추측 게임",
+          "pad": [
+            0,
+            8,
+            0,
+            8
+          ],
+          "per_row": 1,
+          "tag": "main",
+          "w": 600,
+          "y": 60
+        },
+        {
+          "h": 273,
+          "pad": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "per_row": 1,
+          "tag": "section",
+          "w": 584,
+          "y": 147
+        },
+        {
+          "h": 2269,
+          "heading": "질문과 답변",
+          "pad": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "per_row": 1,
+          "tag": "section",
+          "w": 584,
+          "y": 520
+        },
+        {
+          "h": 30,
+          "pad": [
+            8,
+            0,
+            0,
+            0
+          ],
+          "per_row": 1,
+          "tag": "footer",
+          "w": 584,
+          "y": 2813
+        }
+      ],
+      "page_h": 2867,
+      "page_w": 1425,
+      "type": {
+        "body": 16,
+        "h1": 32,
+        "h2": 24,
+        "h3": 0
+      },
+      "width": 1440
+    },
+    {
+      "blocks": [
+        {
+          "h": 52,
+          "pad": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "per_row": 1,
+          "tag": "header",
+          "w": 753,
+          "y": 0
+        },
+        {
+          "column": {
+            "max_w": 600,
+            "pad": [
+              8,
+              8
+            ],
+            "w": 600,
+            "x": 77
+          },
+          "h": 2783,
+          "heading": "꼬맨틀 - 단어 유사도 추측 게임",
+          "pad": [
+            0,
+            8,
+            0,
+            8
+          ],
+          "per_row": 1,
+          "tag": "main",
+          "w": 600,
+          "y": 60
+        },
+        {
+          "h": 273,
+          "pad": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "per_row": 1,
+          "tag": "section",
+          "w": 584,
+          "y": 147
+        },
+        {
+          "h": 2269,
+          "heading": "질문과 답변",
+          "pad": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "per_row": 1,
+          "tag": "section",
+          "w": 584,
+          "y": 520
+        },
+        {
+          "h": 30,
+          "pad": [
+            8,
+            0,
+            0,
+            0
+          ],
+          "per_row": 1,
+          "tag": "footer",
+          "w": 584,
+          "y": 2813
+        }
+      ],
+      "page_h": 2867,
+      "page_w": 753,
+      "type": {
+        "body": 16,
+        "h1": 32,
+        "h2": 24,
+        "h3": 0
+      },
+      "width": 768
+    },
+    {
+      "blocks": [
+        {
+          "h": 48,
+          "pad": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "per_row": 1,
+          "tag": "header",
+          "w": 390,
+          "y": 0
+        },
+        {
+          "column": {
+            "max_w": 600,
+            "pad": [
+              14,
+              14
+            ],
+            "w": 390,
+            "x": 0
+          },
+          "h": 3592,
+          "heading": "꼬맨틀 - 단어 유사도 추측 게임",
+          "pad": [
+            0,
+            14,
+            0,
+            14
+          ],
+          "per_row": 2,
+          "tag": "main",
+          "w": 390,
+          "y": 56
+        },
+        {
+          "h": 257,
+          "pad": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "per_row": 2,
+          "tag": "section",
+          "w": 362,
+          "y": 131
+        },
+        {
+          "h": 3085,
+          "heading": "질문과 답변",
+          "pad": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "per_row": 1,
+          "tag": "section",
+          "w": 362,
+          "y": 488
+        },
+        {
+          "h": 51,
+          "pad": [
+            8,
+            0,
+            0,
+            0
+          ],
+          "per_row": 1,
+          "tag": "footer",
+          "w": 362,
+          "y": 3597
+        }
+      ],
+      "page_h": 3672,
+      "page_w": 390,
+      "type": {
+        "body": 16,
+        "h1": 24,
+        "h2": 24,
+        "h3": 0
+      },
+      "width": 390
+    }
+  ],
+  "links": [
+    {
+      "href": "https://newsjel.ly/",
+      "text": "데이터 활용에 가치를 더하는 데이터 시각화, NEWSJELLY"
+    },
+    {
+      "href": "https://newsjel.ly/archives/newsjelly-report/data-storytelling/14842",
+      "text": "꼬맨틀 공략집"
+    },
+    {
+      "href": "https://en.wiktionary.org/wiki/Wiktionary:Frequency_lists/Korean_5800",
+      "text": "Wiktionary"
+    },
+    {
+      "href": "https://commoncrawl.org/",
+      "text": "Common Crawl"
+    },
+    {
+      "href": "https://www.wikipedia.org/",
+      "text": "Wikipedia"
+    },
+    {
+      "href": "https://fasttext.cc/docs/en/crawl-vectors.html",
+      "text": "FastText"
+    },
+    {
+      "href": "https://www.nytimes.com/games/wordle/index.html",
+      "text": "Wordle"
+    },
+    {
+      "href": "http://127.0.0.1:63577/nearest1k/1692",
+      "text": "유사도 기준 상위 1,000개의 단어"
+    },
+    {
+      "href": "mailto:help@newsjel.ly",
+      "text": "메일"
+    },
+    {
+      "href": "https://semantle.novalis.org/",
+      "text": "Semantle"
+    },
+    {
+      "href": "https://newsjel.ly/",
+      "text": "뉴스젤리"
+    }
+  ],
+  "outline": [
+    {
+      "box": {
+        "h": 52,
+        "w": 1425,
+        "x": 0,
+        "y": 0
+      },
+      "color": "#000000",
+      "depth": 2,
+      "display": "flex",
+      "flex": "row",
+      "font": "14px 400",
+      "tag": "header"
+    },
+    {
+      "box": {
+        "h": 29,
+        "w": 369,
+        "x": 528,
+        "y": 11
+      },
+      "color": "#000000",
+      "depth": 3,
+      "font": "14.4px 500",
+      "href": "https://newsjel.ly/",
+      "tag": "a",
+      "text": "데이터 활용에 가치를 더하는 데이터 시각화, NEWSJELLY"
+    },
+    {
+      "alt": "뉴스젤리",
+      "box": {
+        "h": 29,
+        "w": 29,
+        "x": 528,
+        "y": 11
+      },
+      "color": "#000000",
+      "depth": 4,
+      "font": "14.4px 500",
+      "src": "http://127.0.0.1:63577/assets/jelly.png",
+      "tag": "img"
+    },
+    {
+      "box": {
+        "h": 2783,
+        "w": 600,
+        "x": 413,
+        "y": 60
+      },
+      "color": "#000000",
+      "depth": 2,
+      "display": "block",
+      "font": "16px 400",
+      "tag": "main"
+    },
+    {
+      "box": {
+        "h": 37,
+        "w": 383,
+        "x": 421,
+        "y": 81
+      },
+      "color": "#000000",
+      "depth": 4,
+      "font": "32px 700",
+      "tag": "h1",
+      "text": "꼬맨틀 - 단어 유사도 추측 게임"
+    },
+    {
+      "box": {
+        "h": 24,
+        "w": 24,
+        "x": 981,
+        "y": 88
+      },
+      "color": "#000000",
+      "depth": 4,
+      "font": "0px 400",
+      "id": "settings-open",
+      "tag": "button",
+      "text": "⚙"
+    },
+    {
+      "box": {
+        "h": 273,
+        "w": 584,
+        "x": 421,
+        "y": 147
+      },
+      "color": "#000000",
+      "depth": 3,
+      "display": "block",
+      "font": "16px 400",
+      "tag": "section"
+    },
+    {
+      "box": {
+        "h": 28,
+        "w": 584,
+        "x": 421,
+        "y": 147
+      },
+      "color": "#000000",
+      "depth": 5,
+      "font": "16px 400",
+      "tag": "p",
+      "text": "1693번째 꼬맨틀의 정답 단어를 맞혀보세요."
+    },
+    {
+      "box": {
+        "h": 28,
+        "w": 584,
+        "x": 421,
+        "y": 175
+      },
+      "color": "#000000",
+      "depth": 5,
+      "font": "16px 400",
+      "tag": "p",
+      "text": "정답 단어와 가장 유사한 단어의 유사도는 49.36 입니다."
+    },
+    {
+      "box": {
+        "h": 56,
+        "w": 584,
+        "x": 421,
+        "y": 203
+      },
+      "color": "#000000",
+      "depth": 5,
+      "font": "16px 400",
+      "tag": "p",
+      "text": "10번째로 유사한 단어의 유사도는 43.81이고, 1,000번째로 유사한 단어의 유사도는 28.78 입니다."
+    },
+    {
+      "box": {
+        "h": 48,
+        "w": 584,
+        "x": 421,
+        "y": 279
+      },
+      "color": "#000000",
+      "depth": 4,
+      "display": "flex",
+      "flex": "row",
+      "font": "16px 400",
+      "id": "guess-form",
+      "tag": "form"
+    },
+    {
+      "background": "#ffffff",
+      "box": {
+        "h": 46,
+        "w": 502,
+        "x": 422,
+        "y": 280
+      },
+      "color": "#000000",
+      "depth": 5,
+      "font": "16.8px 400",
+      "id": "guess_input",
+      "name": "",
+      "placeholder": "추측할 단어를 입력하세요",
+      "tag": "input",
+      "type": "text"
+    },
+    {
+      "background": "#f0f0f0",
+      "box": {
+        "h": 46,
+        "w": 80,
+        "x": 923,
+        "y": 280
+      },
+      "color": "#000000",
+      "depth": 5,
+      "font": "16px 400",
+      "tag": "button",
+      "text": "추측하기"
+    },
+    {
+      "background": "#f0f0f0",
+      "box": {
+        "h": 45,
+        "w": 69,
+        "x": 421,
+        "y": 375
+      },
+      "color": "#000000",
+      "depth": 5,
+      "font": "16px 400",
+      "id": "give-up",
+      "tag": "button",
+      "text": "포기하기"
+    },
+    {
+      "box": {
+        "h": 45,
+        "w": 507,
+        "x": 498,
+        "y": 375
+      },
+      "color": "#421ddb",
+      "depth": 5,
+      "font": "16px 500",
+      "href": "https://newsjel.ly/archives/newsjelly-report/data-storytelling/14842",
+      "tag": "a"
+    },
+    {
+      "alt": "꼬맨틀 공략집",
+      "box": {
+        "h": 45,
+        "w": 507,
+        "x": 498,
+        "y": 375
+      },
+      "color": "#421ddb",
+      "depth": 6,
+      "font": "16px 500",
+      "src": "http://127.0.0.1:63577/assets/guide.png",
+      "tag": "img"
+    },
+    {
+      "box": {
+        "h": 2269,
+        "w": 584,
+        "x": 421,
+        "y": 520
+      },
+      "color": "#000000",
+      "depth": 3,
+      "display": "block",
+      "font": "16px 400",
+      "tag": "section"
+    },
+    {
+      "box": {
+        "h": 36,
+        "w": 584,
+        "x": 421,
+        "y": 545
+      },
+      "color": "#000000",
+      "depth": 4,
+      "font": "24px 700",
+      "tag": "h2",
+      "text": "질문과 답변"
+    },
+    {
+      "box": {
+        "h": 2184,
+        "w": 584,
+        "x": 421,
+        "y": 605
+      },
+      "color": "#000000",
+      "depth": 4,
+      "display": "block",
+      "font": "16px 400",
+      "tag": "ul"
+    },
+    {
+      "box": {
+        "h": 32,
+        "w": 544,
+        "x": 461,
+        "y": 605
+      },
+      "color": "#000000",
+      "depth": 6,
+      "font": "16px 700",
+      "tag": "p",
+      "text": "꼬맨틀은 무엇인가요?"
+    },
+    {
+      "box": {
+        "h": 84,
+        "w": 530,
+        "x": 475,
+        "y": 645
+      },
+      "color": "#000000",
+      "depth": 7,
+      "display": "block",
+      "font": "16px 400",
+      "tag": "ul"
+    },
+    {
+      "box": {
+        "h": 32,
+        "w": 544,
+        "x": 461,
+        "y": 753
+      },
+      "color": "#000000",
+      "depth": 6,
+      "font": "16px 700",
+      "tag": "p",
+      "text": "정답 단어에는 어떤 단어가 포함되어 있나요?"
+    },
+    {
+      "box": {
+        "h": 168,
+        "w": 530,
+        "x": 475,
+        "y": 793
+      },
+      "color": "#000000",
+      "depth": 7,
+      "display": "block",
+      "font": "16px 400",
+      "tag": "ul"
+    },
+    {
+      "box": {
+        "h": 19,
+        "w": 78,
+        "x": 592,
+        "y": 881
+      },
+      "color": "#421ddb",
+      "depth": 9,
+      "font": "16px 500",
+      "href": "https://en.wiktionary.org/wiki/Wiktionary:Frequency_lists/Korean_5800",
+      "tag": "a",
+      "text": "Wiktionary"
+    },
+    {
+      "box": {
+        "h": 32,
+        "w": 544,
+        "x": 461,
+        "y": 985
+      },
+      "color": "#000000",
+      "depth": 6,
+      "font": "16px 700",
+      "tag": "p",
+      "text": "유사도는 무엇인가요?"
+    },
+    {
+      "box": {
+        "h": 224,
+        "w": 530,
+        "x": 475,
+        "y": 1025
+      },
+      "color": "#000000",
+      "depth": 7,
+      "display": "block",
+      "font": "16px 400",
+      "tag": "ul"
+    },
+    {
+      "box": {
+        "h": 19,
+        "w": 112,
+        "x": 724,
+        "y": 1113
+      },
+      "color": "#421ddb",
+      "depth": 9,
+      "font": "16px 500",
+      "href": "https://commoncrawl.org/",
+      "tag": "a",
+      "text": "Common Crawl"
+    },
+    {
+      "box": {
+        "h": 19,
+        "w": 71,
+        "x": 858,
+        "y": 1113
+      },
+      "color": "#421ddb",
+      "depth": 9,
+      "font": "16px 500",
+      "href": "https://www.wikipedia.org/",
+      "tag": "a",
+      "text": "Wikipedia"
+    },
+    {
+      "box": {
+        "h": 19,
+        "w": 62,
+        "x": 592,
+        "y": 1141
+      },
+      "color": "#421ddb",
+      "depth": 9,
+      "font": "16px 500",
+      "href": "https://fasttext.cc/docs/en/crawl-vectors.html",
+      "tag": "a",
+      "text": "FastText"
+    },
+    {
+      "box": {
+        "h": 32,
+        "w": 544,
+        "x": 461,
+        "y": 1273
+      },
+      "color": "#000000",
+      "depth": 6,
+      "font": "16px 700",
+      "tag": "p",
+      "text": "정답 단어와 유사도가 높은 단어, 왜일까요?"
+    },
+    {
+      "box": {
+        "h": 252,
+        "w": 530,
+        "x": 475,
+        "y": 1313
+      },
+      "color": "#000000",
+      "depth": 7,
+      "display": "block",
+      "font": "16px 400",
+      "tag": "ul"
+    },
+    {
+      "box": {
+        "h": 32,
+        "w": 544,
+        "x": 461,
+        "y": 1589
+      },
+      "color": "#000000",
+      "depth": 6,
+      "font": "16px 700",
+      "tag": "p",
+      "text": "그래도 유사도가 이해되지 않을 때에는 어떻게 하죠?"
+    },
+    {
+      "box": {
+        "h": 168,
+        "w": 530,
+        "x": 475,
+        "y": 1629
+      },
+      "color": "#000000",
+      "depth": 7,
+      "display": "block",
+      "font": "16px 400",
+      "tag": "ul"
+    },
+    {
+      "box": {
+        "h": 32,
+        "w": 544,
+        "x": 461,
+        "y": 1821
+      },
+      "color": "#000000",
+      "depth": 6,
+      "font": "16px 700",
+      "tag": "p",
+      "text": "하루에 한 번 이상 플레이할 수는 없나요?"
+    },
+    {
+      "box": {
+        "h": 112,
+        "w": 530,
+        "x": 475,
+        "y": 1861
+      },
+      "color": "#000000",
+      "depth": 7,
+      "display": "block",
+      "font": "16px 400",
+      "tag": "ul"
+    },
+    {
+      "box": {
+        "h": 19,
+        "w": 51,
+        "x": 859,
+        "y": 1865
+      },
+      "color": "#421ddb",
+      "depth": 9,
+      "font": "16px 500",
+      "href": "https://www.nytimes.com/games/wordle/index.html",
+      "tag": "a",
+      "text": "Wordle"
+    },
+    {
+      "box": {
+        "h": 32,
+        "w": 544,
+        "x": 461,
+        "y": 1997
+      },
+      "color": "#000000",
+      "depth": 6,
+      "font": "16px 700",
+      "tag": "p",
+      "text": "어제의 정답은 무엇인가요?"
+    },
+    {
+      "box": {
+        "h": 56,
+        "w": 530,
+        "x": 475,
+        "y": 2037
+      },
+      "color": "#000000",
+      "depth": 7,
+      "display": "block",
+      "font": "16px 400",
+      "tag": "ul"
+    },
+    {
+      "box": {
+        "h": 19,
+        "w": 208,
+        "x": 641,
+        "y": 2069
+      },
+      "color": "#421ddb",
+      "depth": 9,
+      "font": "16px 500",
+      "href": "http://127.0.0.1:63577/nearest1k/1692",
+      "tag": "a",
+      "text": "유사도 기준 상위 1,000개의 단어"
+    },
+    {
+      "box": {
+        "h": 32,
+        "w": 544,
+        "x": 461,
+        "y": 2117
+      },
+      "color": "#000000",
+      "depth": 6,
+      "font": "16px 700",
+      "tag": "p",
+      "text": "플레이 기록을 볼 수 있나요?"
+    },
+    {
+      "box": {
+        "h": 140,
+        "w": 530,
+        "x": 475,
+        "y": 2157
+      },
+      "color": "#000000",
+      "depth": 7,
+      "display": "block",
+      "font": "16px 400",
+      "tag": "ul"
+    },
+    {
+      "box": {
+        "h": 32,
+        "w": 544,
+        "x": 461,
+        "y": 2321
+      },
+      "color": "#000000",
+      "depth": 6,
+      "font": "16px 700",
+      "tag": "p",
+      "text": "데이터 시각화 전문기업 뉴스젤리는 왜 꼬맨틀을 만들었나요?"
+    },
+    {
+      "box": {
+        "h": 336,
+        "w": 530,
+        "x": 475,
+        "y": 2361
+      },
+      "color": "#000000",
+      "depth": 7,
+      "display": "block",
+      "font": "16px 400",
+      "tag": "ul"
+    },
+    {
+      "box": {
+        "h": 32,
+        "w": 544,
+        "x": 461,
+        "y": 2721
+      },
+      "color": "#000000",
+      "depth": 6,
+      "font": "16px 700",
+      "tag": "p",
+      "text": "다른 질문이나 피드백은 어떻게 보내나요?"
+    },
+    {
+      "box": {
+        "h": 28,
+        "w": 530,
+        "x": 475,
+        "y": 2761
+      },
+      "color": "#000000",
+      "depth": 7,
+      "display": "block",
+      "font": "16px 400",
+      "tag": "ul"
+    },
+    {
+      "box": {
+        "h": 19,
+        "w": 28,
+        "x": 515,
+        "y": 2765
+      },
+      "color": "#421ddb",
+      "depth": 9,
+      "font": "16px 500",
+      "href": "mailto:help@newsjel.ly",
+      "tag": "a",
+      "text": "메일"
+    },
+    {
+      "box": {
+        "h": 30,
+        "w": 584,
+        "x": 421,
+        "y": 2813
+      },
+      "color": "#000000",
+      "depth": 3,
+      "display": "block",
+      "font": "14px 400",
+      "tag": "footer"
+    },
+    {
+      "box": {
+        "h": 16,
+        "w": 60,
+        "x": 586,
+        "y": 2824
+      },
+      "color": "#421ddb",
+      "depth": 4,
+      "font": "14px 500",
+      "href": "https://semantle.novalis.org/",
+      "tag": "a",
+      "text": "Semantle"
+    },
+    {
+      "box": {
+        "h": 16,
+        "w": 48,
+        "x": 846,
+        "y": 2824
+      },
+      "color": "#421ddb",
+      "depth": 4,
+      "font": "14px 500",
+      "href": "https://newsjel.ly/",
+      "tag": "a",
+      "text": "뉴스젤리"
+    }
+  ],
+  "page": {
+    "h": 2867,
+    "w": 1425
+  },
+  "text": "데이터 활용에 가치를 더하는 데이터 시각화, NEWSJELLY 꼬맨틀 - 단어 유사도 추측 게임 ⚙ 1693번째 꼬맨틀의 정답 단어를 맞혀보세요. 정답 단어와 가장 유사한 단어의 유사도는 49.36 입니다. 10번째로 유사한 단어의 유사도는 43.81이고, 1,000번째로 유사한 단어의 유사도는 28.78 입니다. 추측하기 포기하기 질문과 답변 꼬맨틀은 무엇인가요? 꼬맨틀은 오늘의 단어를 맞히는 게임입니다. 정답 단어를 추측하면, 추측한 단어가 정답 단어와 얼마나 유사한지 유사도 점수로 알려줍니다. 가장 유사한 단어의 유사도와 가까운 단어를 추측하면서, 정답 단어를 맞혀보세요. 정답 단어에는 어떤 단어가 포함되어 있나요? 정답 단어는 명사뿐만 아니라 동사, 형용사 등 모든 품사를 포함하며, 품사의 기본형만 해당합니다. 예시) 행복, 기쁘다, 사랑하다, 야옹, 그래도, 갑자기 정답 단어는 Wiktionary에서 자주 쓰이는 한국어 낱말을 가져와 두 글자 이상의 단어만을 추출, 임의 선택합니다. 정답 단어는 모두 두 글자 이상이지만, 전략적인 이유로 한 글자 단어를 추측해볼 수 있습니다. 유사도는 무엇인가요? 꼬맨틀에서 추측한 단어와 정답 단어가 의미맥락적으로 얼마나 비슷한지에 대한 정도를 -100에서 +100까지의 숫자로 계산한 점수입니다. +이면서, 숫자가 클수록 유사한 정도가 크다고 이해할 수 있습니다. 유사도 추정을 위해 꼬맨틀에서는 Common Crawl 및 Wikipedia 데이터로 사전 훈련된 FastText를 사용하였습니다. 훈련된 데이터에 따라 편향이 있을 수 있습니다. 꼬맨틀에서는 정답 단어와 가장 비슷한 1,000개의 단어 안에 추측한 단어가 있을 때, 단어의 유사도 순위를 함께 제공합니다. 정답 단어와 유사도가 높은 단어, 왜일까요? 꼬맨틀의 유사도는 단어의 철자의 유사도가 아닌, 의미에 대한 유사도라는 점을 기억해주세요. 의미적 맥락을 고려해볼 때 정답 단어와 같은 문단 혹은 문장에 언급될 법한 단어로 추측해보세요. 의미적으로는 반대의 의미를 갖더라도, 유사한 맥락에 사용된다면 유사도가 비슷하답니다. ‘사랑'과 ‘증오'는 의미상으로 반대되는 것처럼 보일 수 있지만, 같은 맥락에서 자주 사용되기 때문에 종종 비슷한 유사도를 갖습니다. 동음이의어를 고려해주세요. 예를 들어 ‘밤’ 하면 쉽게 떠오르는 2가지 의미 - 어두운 ‘밤', 가을에 따먹는 ‘밤'- 중 정답 단어와 의미맥락적으로 비슷한 밤은 어떤 의미일지 추측해보세요. 그래도 유사도가 이해되지 않을 때에는 어떻게 하죠? 정답 단어를 맞힌 뒤에도 추측 단어는 계속 입력할 수 있습니다. 정답 단어와 유사하다고 생각되는 다른 추측 단어를 입력해보면서, 유사도를 확인해보세요. 정답 단어를 맞혔을 때 함께 제공되는 유사도 기준 상위 1,000개의 단어를 살펴보세요. 정답 단어와 유사한 정도가 큰 단어들을 살펴보다 보면, 유사도에 대한 이해도 높이고 정답 단어에 도달하기까지 추측 횟수도 줄일 수 있을 거예요. 하루에 한 번 이상 플레이할 수는 없나요? 꼬맨틀은 하루에 한 번만 플레이 할 수 있습니다. 저희는 Wordle과 같은 게임의 핵심 요소는 \"하루에 한 번만, 모두가 동일한 정답\"이라고 생각합니다. 정답 단어는 국제 표준시(UTC) 기준 매일 오후 3시 또는 한국 표준시(KST) 기준 자정에 바뀝니다. 어제의 정답은 무엇인가요? 어제의 정답 단어는 가수입니다. 정답 단어와 비슷한, 유사도 기준 상위 1,000개의 단어를 확인할 수 있습니다. 플레이 기록을 볼 수 있나요? 꼬맨틀 페이지는 쿠키를 사용하여 설정 및 개인 게임 통계를 저장하며, 통계 수집을 위해 쿠키 정보를 수집합니다. 동일 브라우저에서 플레이했다면, 꼬맨틀의 정답 단어를 맞혔을 때 노출되는 영역에서 가장 처음 풀었던 꼬맨틀의 번호, 플레이한 게임 수와 그 결과(정답, 연속 정답, 포기), 지금까지 추측했던 단어의 총개수를 알 수 있습니다. 데이터 시각화 전문기업 뉴스젤리는 왜 꼬맨틀을 만들었나요? 뉴스젤리는 데이터 시각화 전문 기업으로서, 데이터 활용을 위한 시각화 가치를 널리 알리는 일을 하고 있습니다. 따라서 저희에게 데이터와 시각화는 일상과도 같은데요. 사람들이 쉽게 데이터와 시각화를 경험할 수 있는 ‘재미있는 무언가'를 만들고 싶었습니다. 단어 맞추기 게임인 꼬맨틀의 핵심은 ‘단어' 데이터인데요. 단어를 단순히 자음과 모음의 구성으로 보는 기본적인 관점에서 나아가, 여러 단어 간 관계를 컴퓨터가 이해할 수 있도록 변환(워드 임베딩)을 하고, 의미 맥락적 유사도를 찾는 심도 깊은 데이터 활용 사례를 공유하고자 하였습니다. 꼬맨틀을 플레이하는 가운데 사용자는 내가 추측한 단어 기록을 데이터와 직관적인 시각화로 확인할 수 있는데요! 꼬맨틀 플레이 경험을 통해 데이터 시각화의 가치를 경험할 수 있기를 기대합니다. (데이터 시각화는 앞으로 더 추가될 예정입니다.) 다른 질문이나 피드백은 어떻게 보내나요? 메일로 문의해주세요. 꼬맨틀은 David Turner의 Semantle을 바탕으로 데이터 시각화 전문기업 뉴스젤리가 만들었습니다.",
+  "title": "꼬맨틀 - 단어 유사도 추측 게임",
+  "url": "http://127.0.0.1:63577/",
+  "viewport": {
+    "h": 900,
+    "w": 1440
+  }
+}

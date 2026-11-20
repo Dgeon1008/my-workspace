@@ -1,0 +1,162 @@
+{
+  "id": "ev_776a4336dc6c57e343a1e1b7c7d877017ef09f187d1af7d67966a40082abccc6",
+  "subject": {
+    "kind": "website",
+    "name": "http://127.0.0.1:61714/nearest1k/1693"
+  },
+  "operation": "web_site_capture",
+  "params": {
+    "include_html": false,
+    "max_height": 12000,
+    "noise_pass": false,
+    "visitor_view": true,
+    "widths": [
+      1440,
+      768,
+      390
+    ]
+  },
+  "result": {
+    "counts": {
+      "forms": 0,
+      "headings": 0,
+      "images": 0,
+      "links": 1,
+      "outline": 4
+    },
+    "design": {
+      "backgrounds": [
+        {
+          "count": 1,
+          "value": "#ffffff"
+        },
+        {
+          "count": 1,
+          "value": "#ffdfe4"
+        }
+      ],
+      "font_sizes": [
+        {
+          "count": 4,
+          "value": "16px"
+        }
+      ],
+      "font_weights": [
+        {
+          "count": 2,
+          "value": "700"
+        },
+        {
+          "count": 1,
+          "value": "400"
+        },
+        {
+          "count": 1,
+          "value": "500"
+        }
+      ],
+      "fonts": [
+        {
+          "count": 4,
+          "value": "Pretendard, system-ui, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\""
+        }
+      ],
+      "max_widths": [],
+      "radii": [],
+      "shadows": [],
+      "spacing": [
+        {
+          "count": 4,
+          "value": "14px"
+        },
+        {
+          "count": 1,
+          "value": "20px"
+        },
+        {
+          "count": 1,
+          "value": "32px"
+        }
+      ],
+      "text_colors": [
+        {
+          "count": 3,
+          "value": "#e21b32"
+        },
+        {
+          "count": 1,
+          "value": "#421ddb"
+        }
+      ]
+    },
+    "files": [
+      "README.md",
+      "capture.json"
+    ],
+    "html_bytes": 0,
+    "output_directory": "C:\\Users\\FORYOUCOM\\Desktop\\my-workspace\\components\\harness\\semantle\\checks\\round-0\\routes/nearest1k-1693",
+    "screenshots": [
+      {
+        "css_width": 1440,
+        "cut": false,
+        "file": "screenshot-1440.png",
+        "height": 900,
+        "sha256": "f87e64ad699a00d4a99e5dd4acd8a6de3849efa7bd771d77a46df8e77b365305",
+        "width": 1440
+      },
+      {
+        "css_width": 768,
+        "cut": false,
+        "file": "screenshot-768.png",
+        "height": 900,
+        "sha256": "5d4fbdcc844361d5e8bf845fc01f77816c9b4784e4673dad8dc358a32f7c54d5",
+        "width": 768
+      },
+      {
+        "css_width": 390,
+        "cut": false,
+        "file": "screenshot-390.png",
+        "height": 900,
+        "sha256": "587e490d806937416c58091ea88cd59a97b8356cae407404635efc37899e8791",
+        "width": 390
+      }
+    ],
+    "title": "꼬맨틀 — 유사한 단어 목록",
+    "url": "http://127.0.0.1:61714/nearest1k/1693"
+  },
+  "summary": "Captured http://127.0.0.1:61714/nearest1k/1693: 3 screenshot(s), 4 outline items, 0 headings, 0 images, 1 links, 0 forms → C:\\Users\\FORYOUCOM\\Desktop\\my-workspace\\components\\harness\\semantle\\checks\\round-0\\routes/nearest1k-1693.",
+  "confidence": "observed",
+  "authority": "our-run",
+  "environment": {
+    "clean_room": true,
+    "engine": "cdp",
+    "engine_version": "1.3",
+    "host": "windows-x86_64"
+  },
+  "limitations": [
+    {
+      "code": "one_state",
+      "message": "One state of the page: menus, dialogs and content behind interactions are not opened."
+    },
+    {
+      "code": "visitor_view",
+      "message": "Clean room: only what a visitor sees was kept (screenshots, visible text, measured layout and styles); not the page's HTML, CSS rules, scripts, requests or errors."
+    }
+  ],
+  "coverage": {
+    "status": "complete",
+    "examined": 3,
+    "total": 3
+  },
+  "locations": [
+    {
+      "kind": "url",
+      "value": "http://127.0.0.1:61714/nearest1k/1693"
+    },
+    {
+      "kind": "path",
+      "value": "C:\\Users\\FORYOUCOM\\Desktop\\my-workspace\\components\\harness\\semantle\\checks\\round-0\\routes/nearest1k-1693"
+    }
+  ],
+  "links": []
+}

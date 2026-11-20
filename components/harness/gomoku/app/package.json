@@ -1,0 +1,9 @@
+{
+  "name": "moa-gomoku",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node ../../../../scripts/harness-project.mjs --project gomoku",
+    "dev": "node ../../../../scripts/harness-project.mjs --project gomoku"
+  }
+}

@@ -1,0 +1,156 @@
+{
+  "a11y": {
+    "images_without_alt": 0,
+    "landmarks": {},
+    "lang": "ko",
+    "unnamed_controls": 0,
+    "unnamed_examples": []
+  },
+  "assets": {
+    "images": []
+  },
+  "design": {
+    "backgrounds": [
+      {
+        "count": 1,
+        "value": "#ffdfe4"
+      }
+    ],
+    "font_sizes": [
+      {
+        "count": 4,
+        "value": "16px"
+      }
+    ],
+    "font_weights": [
+      {
+        "count": 2,
+        "value": "400"
+      },
+      {
+        "count": 2,
+        "value": "700"
+      }
+    ],
+    "fonts": [
+      {
+        "count": 4,
+        "value": "Pretendard, system-ui, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\""
+      }
+    ],
+    "max_widths": [],
+    "radii": [],
+    "shadows": [],
+    "spacing": [
+      {
+        "count": 2,
+        "value": "20px"
+      },
+      {
+        "count": 2,
+        "value": "16px"
+      },
+      {
+        "count": 1,
+        "value": "14px"
+      }
+    ],
+    "text_colors": [
+      {
+        "count": 3,
+        "value": "#e21b32"
+      },
+      {
+        "count": 1,
+        "value": "#421ddb"
+      }
+    ]
+  },
+  "forms": [],
+  "headings": [],
+  "lang": "ko",
+  "layouts": [
+    {
+      "blocks": [],
+      "page_h": 900,
+      "page_w": 1440,
+      "type": {
+        "body": 16,
+        "h1": 0,
+        "h2": 0,
+        "h3": 0
+      },
+      "width": 1440
+    },
+    {
+      "blocks": [],
+      "page_h": 900,
+      "page_w": 768,
+      "type": {
+        "body": 16,
+        "h1": 0,
+        "h2": 0,
+        "h3": 0
+      },
+      "width": 768
+    },
+    {
+      "blocks": [],
+      "page_h": 900,
+      "page_w": 390,
+      "type": {
+        "body": 15,
+        "h1": 0,
+        "h2": 0,
+        "h3": 0
+      },
+      "width": 390
+    }
+  ],
+  "links": [
+    {
+      "href": "https://semantle-ko.newsjel.ly/",
+      "text": "메인 페이지로 돌아가기"
+    }
+  ],
+  "outline": [
+    {
+      "box": {
+        "h": 28,
+        "w": 1426,
+        "x": 14,
+        "y": 20
+      },
+      "color": "#e21b32",
+      "depth": 3,
+      "font": "16px 400",
+      "tag": "p",
+      "text": "조심하세요! 이 경고문을 클릭하면 오늘의 정답이 표시됩니다."
+    },
+    {
+      "box": {
+        "h": 18,
+        "w": 1412,
+        "x": 14,
+        "y": 84
+      },
+      "color": "#421ddb",
+      "depth": 2,
+      "font": "16px 400",
+      "href": "https://semantle-ko.newsjel.ly/",
+      "tag": "a",
+      "text": "메인 페이지로 돌아가기"
+    }
+  ],
+  "page": {
+    "h": 900,
+    "w": 1440
+  },
+  "text": "조심하세요! 이 경고문을 클릭하면 오늘의 정답이 표시됩니다. 메인 페이지로 돌아가기",
+  "title": "꼬맨틀 — 유사한 단어 목록",
+  "url": "https://semantle-ko.newsjel.ly/nearest1k/1693",
+  "viewport": {
+    "h": 900,
+    "w": 1440
+  }
+}

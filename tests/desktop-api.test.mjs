@@ -1,0 +1,74 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { spawn, execFile } from 'node:child_process';
+import { promisify } from 'node:util';
+import { mkdtempSync, mkdirSync, existsSync, readFileSync, realpathSync, rmSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join, resolve } from 'node:path';
+import { createServer } from 'node:net';
+import { once } from 'node:events';
+import { setTimeout as delay } from 'node:timers/promises';
+
+test('Windows 실제 테스트 exe 실행·작업 폴더·중복 방지·종료 확인·HTTP 보안', { timeout: 45000, skip: process.platform !== 'win32' }, async () => {
+  const root = mkdtempSync(join(tmpdir(), 'moa-desktop-api-'));
+  const projectPath = join(root, 'project'); mkdirSync(projectPath);
+  const executable = join(projectPath, 'Probe.exe');
+  const systemRoot = process.env.SystemRoot || 'C:\\Windows';
+  const compiler = [join(systemRoot, 'Microsoft.NET', 'Framework64', 'v4.0.30319', 'csc.exe'), join(systemRoot, 'Microsoft.NET', 'Framework', 'v4.0.30319', 'csc.exe')].find(existsSync);
+  assert.ok(compiler, '테스트 exe 컴파일에 Windows .NET Framework가 필요합니다.');
+  await promisify(execFile)(compiler, ['/nologo', '/target:winexe', `/out:${executable}`, resolve('tests/fixtures/DesktopLaunchProbe.cs')], { windowsHide: true, timeout: 10000 });
+  const reservation = createServer();
+  await new Promise(resolve => reservation.listen(0, '127.0.0.1', resolve));
+  const port = reservation.address().port;
+  await new Promise(resolve => reservation.close(resolve));
+  const base = `http://127.0.0.1:${port}`;
+  const child = spawn(process.execPath, ['node_modules/next/dist/bin/next', 'start', '--hostname', '127.0.0.1', '--port', String(port)], { env: { ...process.env, WORKSPACE_DB_PATH: join(root, 'test.sqlite') }, stdio: ['ignore', 'pipe', 'pipe'], windowsHide: true });
+  const exited = once(child, 'exit');
+  child.stdout.on('data', () => {}); child.stderr.on('data', () => {});
+  const request = (path, method = 'GET', value, headers = {}) => fetch(`${base}${path}`, { method, headers: { 'Content-Type': 'application/json', Origin: base, ...headers }, body: value ? JSON.stringify(value) : undefined });
+  let didLaunch = false;
+  try {
+    let ready = false;
+    for (let i = 0; i < 100; i++) { try { ready = (await fetch(base)).ok; } catch {} if (ready) break; await delay(100); }
+    assert.ok(ready);
+    const created = await request('/api/projects', 'POST', { name: '실행 검증 전용', path: projectPath, description: 'temporary', tags: [], status: '진행 중', color: 'sage', favorite: false });
+    assert.equal(created.status, 200);
+    const { project } = await created.json();
+    const path = `/api/projects/${project.id}/launch`;
+    const initial = await (await request(`${path}?details=1`)).json();
+    assert.ok(initial.candidates.includes('Probe.exe'));
+    assert.equal(initial.config, null);
+    const configured = await request(path, 'PUT', { file: 'Probe.exe' });
+    assert.equal(configured.status, 200);
+    const config = (await configured.json()).config;
+    const marker = join(projectPath, 'launched.marker');
+    assert.ok(!existsSync(marker), '설정 저장은 실행하지 않음');
+    assert.equal((await request(path, 'POST', { action: 'start', confirmedVersion: 'invalid' })).status, 409);
+    assert.equal((await request(path, 'POST', { action: 'start', confirmedVersion: config.version }, { Origin: 'https://untrusted.example' })).status, 403);
+    const launched = await request(path, 'POST', { action: 'start', confirmedVersion: config.version });
+    didLaunch = true;
+    assert.equal(launched.status, 200);
+    const result = await launched.json();
+    assert.equal(result.run.state, 'running', JSON.stringify(result));
+    assert.ok(result.run.pid > 0);
+    assert.equal((await request(path, 'POST', { action: 'start', confirmedVersion: config.version })).status, 409);
+    assert.equal((await request('/api/projects', 'DELETE', { id: project.id })).status, 409);
+    assert.equal((await request(path, 'PUT', { file: 'Probe.exe' })).status, 409);
+    for (let i = 0; i < 30 && !existsSync(marker); i++) await delay(100);
+    assert.ok(existsSync(marker), '실제 exe가 실행되어 생성한 파일');
+    assert.equal(realpathSync.native(readFileSync(marker, 'utf8')).toLowerCase(), realpathSync.native(projectPath).toLowerCase());
+    await delay(3500);
+    const acknowledged = await request(path, 'POST', { action: 'acknowledgeClosed', confirmedClosed: true });
+    assert.equal(acknowledged.status, 200);
+    const final = await acknowledged.json();
+    assert.equal(final.run.state, 'idle');
+    assert.ok(final.events.length >= 4);
+    assert.equal((await request('/api/projects', 'DELETE', { id: project.id })).status, 200);
+  } finally {
+    if (child.exitCode === null) child.kill();
+    await exited;
+    if (didLaunch) await delay(3500);
+    assert.ok(resolve(root).startsWith(resolve(tmpdir()) + '\\'), '임시 테스트 디렉터리만 정리');
+    rmSync(root, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 });
+  }
+});

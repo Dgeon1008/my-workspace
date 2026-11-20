@@ -1,0 +1,236 @@
+{
+  "id": "ev_28c2974ec73cc7e24cf3bda9e61823ce8e27d5f79abe6fdf172a398e41e538bc",
+  "subject": {
+    "kind": "website",
+    "name": "http://127.0.0.1:50845/"
+  },
+  "operation": "web_site_capture",
+  "params": {
+    "include_html": false,
+    "max_height": 12000,
+    "noise_pass": false,
+    "visitor_view": true,
+    "widths": [
+      1440,
+      768,
+      390
+    ]
+  },
+  "result": {
+    "counts": {
+      "forms": 1,
+      "headings": 4,
+      "images": 2,
+      "links": 11,
+      "outline": 49
+    },
+    "design": {
+      "backgrounds": [
+        {
+          "count": 2,
+          "value": "#ffffff"
+        },
+        {
+          "count": 2,
+          "value": "#f0f0f0"
+        }
+      ],
+      "font_sizes": [
+        {
+          "count": 45,
+          "value": "16px"
+        },
+        {
+          "count": 3,
+          "value": "14px"
+        },
+        {
+          "count": 2,
+          "value": "14.4px"
+        },
+        {
+          "count": 1,
+          "value": "32px"
+        },
+        {
+          "count": 1,
+          "value": "0px"
+        },
+        {
+          "count": 1,
+          "value": "24px"
+        }
+      ],
+      "font_weights": [
+        {
+          "count": 29,
+          "value": "400"
+        },
+        {
+          "count": 14,
+          "value": "700"
+        },
+        {
+          "count": 10,
+          "value": "500"
+        }
+      ],
+      "fonts": [
+        {
+          "count": 53,
+          "value": "Pretendard, system-ui, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\""
+        }
+      ],
+      "max_widths": [
+        {
+          "count": 1,
+          "value": "600px"
+        }
+      ],
+      "radii": [
+        {
+          "count": 3,
+          "value": "6px"
+        },
+        {
+          "count": 1,
+          "value": "0px 6px 6px 0px"
+        }
+      ],
+      "shadows": [],
+      "spacing": [
+        {
+          "count": 18,
+          "value": "8px"
+        },
+        {
+          "count": 14,
+          "value": "24px"
+        },
+        {
+          "count": 12,
+          "value": "14px"
+        },
+        {
+          "count": 11,
+          "value": "40px"
+        },
+        {
+          "count": 4,
+          "value": "12px"
+        },
+        {
+          "count": 4,
+          "value": "10px"
+        },
+        {
+          "count": 2,
+          "value": "21.44px"
+        },
+        {
+          "count": 2,
+          "value": "6px"
+        },
+        {
+          "count": 1,
+          "value": "7px"
+        },
+        {
+          "count": 1,
+          "value": "20px"
+        },
+        {
+          "count": 1,
+          "value": "48px"
+        },
+        {
+          "count": 1,
+          "value": "100px"
+        }
+      ],
+      "text_colors": [
+        {
+          "count": 43,
+          "value": "#000000"
+        },
+        {
+          "count": 9,
+          "value": "#421ddb"
+        },
+        {
+          "count": 1,
+          "value": "#999999"
+        }
+      ]
+    },
+    "files": [
+      "README.md",
+      "capture.json"
+    ],
+    "html_bytes": 0,
+    "output_directory": "C:\\Users\\FORYOUCOM\\Desktop\\my-workspace\\components\\harness\\semantle\\checks\\round-0",
+    "screenshots": [
+      {
+        "css_width": 1440,
+        "cut": false,
+        "file": "screenshot-1440.png",
+        "height": 2867,
+        "sha256": "234c89f9d8b9c1dcdb1737ebb68239b2a744dcd8fe3ade66a6fe145a7cb1dcf3",
+        "width": 1440
+      },
+      {
+        "css_width": 768,
+        "cut": false,
+        "file": "screenshot-768.png",
+        "height": 2867,
+        "sha256": "9acb38844bca451ad1a710763bda13aaa6df95fbd6cb75497b09b6b1ca264803",
+        "width": 768
+      },
+      {
+        "css_width": 390,
+        "cut": false,
+        "file": "screenshot-390.png",
+        "height": 3672,
+        "sha256": "a4759c86a715fe5b306332cdc736e3a8404d0f6837a7d4f3532fadc1f61b02d0",
+        "width": 390
+      }
+    ],
+    "title": "꼬맨틀 - 단어 유사도 추측 게임",
+    "url": "http://127.0.0.1:50845/"
+  },
+  "summary": "Captured http://127.0.0.1:50845/: 3 screenshot(s), 49 outline items, 4 headings, 2 images, 11 links, 1 forms → C:\\Users\\FORYOUCOM\\Desktop\\my-workspace\\components\\harness\\semantle\\checks\\round-0.",
+  "confidence": "observed",
+  "authority": "our-run",
+  "environment": {
+    "clean_room": true,
+    "engine": "cdp",
+    "engine_version": "1.3",
+    "host": "windows-x86_64"
+  },
+  "limitations": [
+    {
+      "code": "one_state",
+      "message": "One state of the page: menus, dialogs and content behind interactions are not opened."
+    },
+    {
+      "code": "visitor_view",
+      "message": "Clean room: only what a visitor sees was kept (screenshots, visible text, measured layout and styles); not the page's HTML, CSS rules, scripts, requests or errors."
+    }
+  ],
+  "coverage": {
+    "status": "complete",
+    "examined": 3,
+    "total": 3
+  },
+  "locations": [
+    {
+      "kind": "url",
+      "value": "http://127.0.0.1:50845/"
+    },
+    {
+      "kind": "path",
+      "value": "C:\\Users\\FORYOUCOM\\Desktop\\my-workspace\\components\\harness\\semantle\\checks\\round-0"
+    }
+  ],
+  "links": []
+}

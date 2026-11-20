@@ -1,0 +1,158 @@
+{
+  "id": "ev_d9392760788f2343986441d51442516c196b200d1b2fcfe92eac68da58e756a3",
+  "subject": {
+    "kind": "website",
+    "name": "http://127.0.0.1:60380/nearest1k/1693"
+  },
+  "operation": "web_site_capture",
+  "params": {
+    "include_html": false,
+    "max_height": 12000,
+    "noise_pass": false,
+    "visitor_view": true,
+    "widths": [
+      1440,
+      768,
+      390
+    ]
+  },
+  "result": {
+    "counts": {
+      "forms": 0,
+      "headings": 0,
+      "images": 0,
+      "links": 1,
+      "outline": 4
+    },
+    "design": {
+      "backgrounds": [
+        {
+          "count": 1,
+          "value": "#ffffff"
+        },
+        {
+          "count": 1,
+          "value": "#ffdfe4"
+        }
+      ],
+      "font_sizes": [
+        {
+          "count": 4,
+          "value": "16px"
+        }
+      ],
+      "font_weights": [
+        {
+          "count": 2,
+          "value": "400"
+        },
+        {
+          "count": 2,
+          "value": "700"
+        }
+      ],
+      "fonts": [
+        {
+          "count": 4,
+          "value": "Pretendard, system-ui, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\""
+        }
+      ],
+      "max_widths": [],
+      "radii": [],
+      "shadows": [],
+      "spacing": [
+        {
+          "count": 4,
+          "value": "14px"
+        },
+        {
+          "count": 1,
+          "value": "20px"
+        },
+        {
+          "count": 1,
+          "value": "32px"
+        }
+      ],
+      "text_colors": [
+        {
+          "count": 3,
+          "value": "#e21b32"
+        },
+        {
+          "count": 1,
+          "value": "#421ddb"
+        }
+      ]
+    },
+    "files": [
+      "README.md",
+      "capture.json"
+    ],
+    "html_bytes": 0,
+    "output_directory": "C:\\Users\\FORYOUCOM\\Desktop\\my-workspace\\components\\harness\\semantle\\checks\\round-0\\routes/nearest1k-1693",
+    "screenshots": [
+      {
+        "css_width": 1440,
+        "cut": false,
+        "file": "screenshot-1440.png",
+        "height": 900,
+        "sha256": "302a1aa41f6b9af639bbf5c9ac3e136e8400a6e625c8a133784d12137e665219",
+        "width": 1440
+      },
+      {
+        "css_width": 768,
+        "cut": false,
+        "file": "screenshot-768.png",
+        "height": 900,
+        "sha256": "3228e2699735c75c99ddd251b6e056f318b97ee81fd36436b4c5b3fce73cf75f",
+        "width": 768
+      },
+      {
+        "css_width": 390,
+        "cut": false,
+        "file": "screenshot-390.png",
+        "height": 900,
+        "sha256": "c577f504a5170b5e5fae865e65f3246cc83638d13a4d755657f60280fe35183e",
+        "width": 390
+      }
+    ],
+    "title": "꼬맨틀 — 유사한 단어 목록",
+    "url": "http://127.0.0.1:60380/nearest1k/1693"
+  },
+  "summary": "Captured http://127.0.0.1:60380/nearest1k/1693: 3 screenshot(s), 4 outline items, 0 headings, 0 images, 1 links, 0 forms → C:\\Users\\FORYOUCOM\\Desktop\\my-workspace\\components\\harness\\semantle\\checks\\round-0\\routes/nearest1k-1693.",
+  "confidence": "observed",
+  "authority": "our-run",
+  "environment": {
+    "clean_room": true,
+    "engine": "cdp",
+    "engine_version": "1.3",
+    "host": "windows-x86_64"
+  },
+  "limitations": [
+    {
+      "code": "one_state",
+      "message": "One state of the page: menus, dialogs and content behind interactions are not opened."
+    },
+    {
+      "code": "visitor_view",
+      "message": "Clean room: only what a visitor sees was kept (screenshots, visible text, measured layout and styles); not the page's HTML, CSS rules, scripts, requests or errors."
+    }
+  ],
+  "coverage": {
+    "status": "complete",
+    "examined": 3,
+    "total": 3
+  },
+  "locations": [
+    {
+      "kind": "url",
+      "value": "http://127.0.0.1:60380/nearest1k/1693"
+    },
+    {
+      "kind": "path",
+      "value": "C:\\Users\\FORYOUCOM\\Desktop\\my-workspace\\components\\harness\\semantle\\checks\\round-0\\routes/nearest1k-1693"
+    }
+  ],
+  "links": []
+}

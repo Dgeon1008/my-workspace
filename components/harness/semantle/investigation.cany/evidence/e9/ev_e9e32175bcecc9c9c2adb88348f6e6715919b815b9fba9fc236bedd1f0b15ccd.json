@@ -1,0 +1,157 @@
+{
+  "id": "ev_e9e32175bcecc9c9c2adb88348f6e6715919b815b9fba9fc236bedd1f0b15ccd",
+  "subject": {
+    "kind": "website",
+    "name": "https://semantle-ko.newsjel.ly/nearest1k/1693"
+  },
+  "operation": "web_site_capture",
+  "params": {
+    "include_html": false,
+    "max_height": 12000,
+    "noise_pass": true,
+    "visitor_view": true,
+    "widths": [
+      1440,
+      768,
+      390
+    ]
+  },
+  "result": {
+    "counts": {
+      "forms": 0,
+      "headings": 0,
+      "images": 0,
+      "links": 1,
+      "outline": 2
+    },
+    "design": {
+      "backgrounds": [
+        {
+          "count": 1,
+          "value": "#ffdfe4"
+        }
+      ],
+      "font_sizes": [
+        {
+          "count": 4,
+          "value": "16px"
+        }
+      ],
+      "font_weights": [
+        {
+          "count": 2,
+          "value": "400"
+        },
+        {
+          "count": 2,
+          "value": "700"
+        }
+      ],
+      "fonts": [
+        {
+          "count": 4,
+          "value": "Pretendard, system-ui, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\""
+        }
+      ],
+      "max_widths": [],
+      "radii": [],
+      "shadows": [],
+      "spacing": [
+        {
+          "count": 2,
+          "value": "20px"
+        },
+        {
+          "count": 2,
+          "value": "16px"
+        },
+        {
+          "count": 1,
+          "value": "14px"
+        }
+      ],
+      "text_colors": [
+        {
+          "count": 3,
+          "value": "#e21b32"
+        },
+        {
+          "count": 1,
+          "value": "#421ddb"
+        }
+      ]
+    },
+    "files": [
+      "README.md",
+      "capture.json"
+    ],
+    "html_bytes": 0,
+    "output_directory": "C:\\Users\\FORYOUCOM\\Desktop\\my-workspace\\components\\harness\\semantle\\capture\\routes\\nearest1k-1693",
+    "screenshots": [
+      {
+        "css_width": 1440,
+        "cut": false,
+        "file": "screenshot-1440.png",
+        "height": 900,
+        "noise_tiles": 0,
+        "sha256": "833e0e563e8a666659c5de9f53918d8a50666cb66cecd9398b775dc8f1d1ecc4",
+        "width": 1440
+      },
+      {
+        "css_width": 768,
+        "cut": false,
+        "file": "screenshot-768.png",
+        "height": 900,
+        "noise_tiles": 0,
+        "sha256": "cf7667ad4ab8b3a33b50d00ae069cb04a79720621bfe74b72f3e2c94d4ca7844",
+        "width": 768
+      },
+      {
+        "css_width": 390,
+        "cut": false,
+        "file": "screenshot-390.png",
+        "height": 900,
+        "noise_tiles": 0,
+        "sha256": "735a4a037049aaaccbb35200134a196b1a5d1f2d6e517f5b403729b0a923d8b7",
+        "width": 390
+      }
+    ],
+    "title": "꼬맨틀 — 유사한 단어 목록",
+    "url": "https://semantle-ko.newsjel.ly/nearest1k/1693"
+  },
+  "summary": "Captured https://semantle-ko.newsjel.ly/nearest1k/1693: 3 screenshot(s), 2 outline items, 0 headings, 0 images, 1 links, 0 forms → C:\\Users\\FORYOUCOM\\Desktop\\my-workspace\\components\\harness\\semantle\\capture\\routes\\nearest1k-1693.",
+  "confidence": "observed",
+  "authority": "our-run",
+  "environment": {
+    "clean_room": true,
+    "engine": "cdp",
+    "engine_version": "1.3",
+    "host": "windows-x86_64"
+  },
+  "limitations": [
+    {
+      "code": "one_state",
+      "message": "One state of the page: menus, dialogs and content behind interactions are not opened."
+    },
+    {
+      "code": "visitor_view",
+      "message": "Clean room: only what a visitor sees was kept (screenshots, visible text, measured layout and styles); not the page's HTML, CSS rules, scripts, requests or errors."
+    }
+  ],
+  "coverage": {
+    "status": "complete",
+    "examined": 3,
+    "total": 3
+  },
+  "locations": [
+    {
+      "kind": "url",
+      "value": "https://semantle-ko.newsjel.ly/nearest1k/1693"
+    },
+    {
+      "kind": "path",
+      "value": "C:\\Users\\FORYOUCOM\\Desktop\\my-workspace\\components\\harness\\semantle\\capture\\routes\\nearest1k-1693"
+    }
+  ],
+  "links": []
+}

@@ -1,0 +1,36 @@
+{
+  "revision": 8,
+  "brief": {
+    "question": "Recreate the captured Korean Semantle website in app/ and finish the interrupted build.",
+    "targets": [
+      "https://semantle-ko.newsjel.ly/",
+      "app/"
+    ],
+    "constraints": [
+      "Use captured visitor-visible evidence only; no original source inspection.",
+      "No external dependencies without need."
+    ],
+    "done_when": "Static website builds, interactions tested, rebuild_check completed and findings addressed."
+  },
+  "plan": [
+    {
+      "title": "Review captures and previous work",
+      "status": "done",
+      "why": "Original app was empty; no previous checklist or unknowns."
+    },
+    {
+      "title": "Implement responsive site and persistent interactions",
+      "status": "done",
+      "why": "Recreated first page and both captured list routes, settings and persistent practice game using 1000 public word scores."
+    },
+    {
+      "title": "Build, test interactions and run rebuild_check",
+      "status": "done",
+      "why": "Build and 3 engine tests pass; final rebuild_check passes at 92% overall. Browser click testing could not complete: sandbox process restriction and Chrome automatic approval rejection. Live scoring remains a documented external dependency."
+    }
+  ],
+  "hypotheses": [],
+  "findings": [],
+  "handoff": "Implemented user request: follow official daily Korean Semantle rather than pinned 1693. app/daily.js validates /today and /top_scores snapshots, Korean midnight time functions. engine/scoring accept explicit puzzle, preserve old defaults only for historical regression tests. game.js loads official daily puzzle, refreshes at KST midnight/every30sec/focus/visibility, checks dates before actions and after asynchronous guess results, discards old in-flight scores, preserves per-puzzle progress and shared settings. Dynamic intro thresholds, previous answer/link and historical nearest routes; today/yesterday have spoiler warnings. server.mjs serves daily/puzzle APIs and arbitrary valid historical/current scoring with bounds, timeouts, response validation, short daily cache keyed by Korean date, bounded snapshot cache. Found embedded App.jsx was pinned to1693 and scoped document lacked event APIs; minimally wired to new app/bridge.js Next server action for official API requests, dynamic routes and scoped events; no parent workspace API writes. Build generates date-limited dist/daily-snapshot.json for Craft static preview; expires at Korean midnight, requires npm start or embedded Next app for ongoing daily operation (upstream lacks CORS). README documents; browser test script follows current puzzle. npm test:13 pass incl mounted game midnight rollover with delayed prior score, preference/history preservation, server action, preview expiry. npm run build passes. Actual local server->official API live E2E: current1694,1001 words, answer score100/rank0. rebuild_check final passes92% (90 needed), 10/10 structural claims. Historical capture text mismatches intentional daily updates. Full parent Next build cannot run in restricted root (attempt found EPERM outside root); not claimed verified. Browser Playwright script updated but not run; Craft renders verify standalone visuals. Original ledger unknown about API/answer is resolved by public /today, /top_scores/:id and /guess queries recorded in build activity; no fabricated evidence IDs. No outstanding code tasks.",
+  "updated": "2026-11-20T01:38:40Z"
+}

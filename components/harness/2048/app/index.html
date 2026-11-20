@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light dark"><title>2048 · 모아</title><link rel="stylesheet" href="/style.css"><script type="module" src="/game.js"></script></head>
+<body><main class="game-shell">
+  <header class="game-heading"><div><p class="eyebrow">MOA PLAYROOM / 03</p><h1>숫자를 합쳐<span> 2048.</span></h1><p class="subtitle">한 칸씩 채워가는 작은 도전.</p></div><div class="scores"><div class="score-card"><span>점수</span><strong id="score">0</strong></div><div class="score-card"><span>최고 점수</span><strong id="best">0</strong></div></div></header>
+  <section class="game-panel" aria-label="2048 게임">
+    <div class="board-heading"><div><span class="live-dot"></span><strong id="status" role="status" aria-live="polite">타일을 합쳐 2048을 만들어보세요.</strong></div><div class="actions"><button id="undo" type="button" aria-label="한 수 되돌리기" title="한 수 되돌리기">↶ 되돌리기</button><button id="new-game" type="button">새 게임</button></div></div>
+    <div class="board-frame"><div id="board" class="board" role="grid" aria-label="2048 게임판" tabindex="0"></div>
+      <div id="result" class="result" hidden><div class="result-card"><span class="result-sparkle">✦</span><strong id="result-title">2048 달성!</strong><p id="result-copy"></p><div><button id="continue" type="button">계속하기</button><button id="result-new-game" type="button">새 게임</button></div></div></div>
+    </div>
+    <p id="notice" class="notice" role="status"></p>
+  </section>
+  <div class="lower-grid"><section class="tip-card"><p class="section-label">HOW TO PLAY</p><h2>같은 숫자를 모아보세요.</h2><p>방향키 또는 <kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd>를 눌러 모든 타일을 움직입니다. 같은 숫자 두 개가 만나면 하나로 합쳐집니다.</p></section><section class="tip-card small-tip"><span class="tip-icon">↶</span><div><strong>한 수 되돌리기</strong><p>방금 둔 수를 한 번 취소할 수 있어요. <kbd>Ctrl</kbd> + <kbd>Z</kbd>도 사용할 수 있습니다.</p></div></section></div>
+  <footer>천천히 움직여도, 숫자는 자라나요.<span>2048 / MOA</span></footer>
+</main>
+<dialog id="new-dialog" aria-labelledby="dialog-title"><h2 id="dialog-title">새 게임을 시작할까요?</h2><p>현재 판을 새 숫자로 바꿉니다. 최고 점수는 그대로 남아요.</p><div class="dialog-actions"><button id="cancel-new" type="button">계속하기</button><button id="confirm-new" type="button">새 게임</button></div></dialog>
+</body></html>

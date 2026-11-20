@@ -1,0 +1,158 @@
+{
+  "id": "ev_fdfa7e79c09ea0725150cbfe48a1edf9c0fa488a71dd7ea4740e9c68389fd6a8",
+  "subject": {
+    "kind": "website",
+    "name": "http://127.0.0.1:63577/nearest1k/1692"
+  },
+  "operation": "web_site_capture",
+  "params": {
+    "include_html": false,
+    "max_height": 12000,
+    "noise_pass": false,
+    "visitor_view": true,
+    "widths": [
+      1440,
+      768,
+      390
+    ]
+  },
+  "result": {
+    "counts": {
+      "forms": 0,
+      "headings": 0,
+      "images": 0,
+      "links": 1,
+      "outline": 3
+    },
+    "design": {
+      "backgrounds": [
+        {
+          "count": 1,
+          "value": "#ffffff"
+        }
+      ],
+      "font_sizes": [
+        {
+          "count": 3006,
+          "value": "16px"
+        }
+      ],
+      "font_weights": [
+        {
+          "count": 3002,
+          "value": "400"
+        },
+        {
+          "count": 4,
+          "value": "700"
+        }
+      ],
+      "fonts": [
+        {
+          "count": 3006,
+          "value": "Pretendard, system-ui, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\""
+        }
+      ],
+      "max_widths": [],
+      "radii": [],
+      "shadows": [],
+      "spacing": [
+        {
+          "count": 6003,
+          "value": "1px"
+        },
+        {
+          "count": 3006,
+          "value": "12px"
+        },
+        {
+          "count": 4,
+          "value": "32px"
+        },
+        {
+          "count": 2,
+          "value": "14px"
+        }
+      ],
+      "text_colors": [
+        {
+          "count": 3005,
+          "value": "#000000"
+        },
+        {
+          "count": 1,
+          "value": "#421ddb"
+        }
+      ]
+    },
+    "files": [
+      "README.md",
+      "capture.json"
+    ],
+    "html_bytes": 0,
+    "output_directory": "C:\\Users\\FORYOUCOM\\Desktop\\my-workspace\\components\\harness\\semantle\\checks\\round-2\\routes/nearest1k-1692",
+    "screenshots": [
+      {
+        "css_width": 1440,
+        "cut": true,
+        "file": "screenshot-1440.png",
+        "height": 12000,
+        "sha256": "835229ac6f5a5841897355831e4e4d08d60cd9144da4705b99e2fafcc639ef1e",
+        "width": 1440
+      },
+      {
+        "css_width": 768,
+        "cut": true,
+        "file": "screenshot-768.png",
+        "height": 12000,
+        "sha256": "2df3e13e1b1f58cd71c20a65b1c20002c2ac9efda9758b311800e583c391c575",
+        "width": 768
+      },
+      {
+        "css_width": 390,
+        "cut": true,
+        "file": "screenshot-390.png",
+        "height": 12000,
+        "sha256": "2658a969bdd3f64cd7c5fdf7d31d7eac0df43bfc86207af04b56d64063c696c7",
+        "width": 390
+      }
+    ],
+    "title": "꼬맨틀 — 유사한 단어 목록",
+    "url": "http://127.0.0.1:63577/nearest1k/1692"
+  },
+  "summary": "Captured http://127.0.0.1:63577/nearest1k/1692: 3 screenshot(s), 3 outline items, 0 headings, 0 images, 1 links, 0 forms → C:\\Users\\FORYOUCOM\\Desktop\\my-workspace\\components\\harness\\semantle\\checks\\round-2\\routes/nearest1k-1692.",
+  "confidence": "observed",
+  "authority": "our-run",
+  "environment": {
+    "clean_room": true,
+    "engine": "cdp",
+    "engine_version": "1.3",
+    "host": "windows-x86_64"
+  },
+  "limitations": [
+    {
+      "code": "one_state",
+      "message": "One state of the page: menus, dialogs and content behind interactions are not opened."
+    },
+    {
+      "code": "visitor_view",
+      "message": "Clean room: only what a visitor sees was kept (screenshots, visible text, measured layout and styles); not the page's HTML, CSS rules, scripts, requests or errors."
+    }
+  ],
+  "coverage": {
+    "status": "complete",
+    "examined": 3,
+    "total": 3
+  },
+  "locations": [
+    {
+      "kind": "url",
+      "value": "http://127.0.0.1:63577/nearest1k/1692"
+    },
+    {
+      "kind": "path",
+      "value": "C:\\Users\\FORYOUCOM\\Desktop\\my-workspace\\components\\harness\\semantle\\checks\\round-2\\routes/nearest1k-1692"
+    }
+  ],
+  "links": []
+}
