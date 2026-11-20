@@ -1,22 +1,30 @@
-const mapCanvas = document.createElement('canvas');
-mapCanvas.width = 2048;
-mapCanvas.height = 1024;
-const map = mapCanvas.getContext('2d', { alpha: false });
-const width = mapCanvas.width, height = mapCanvas.height;
-const xy = ([lon, lat]) => [(lon + 180) / 360 * width, (90 - lat) / 180 * height];
-
-function traceLand(polygons) {
-  map.beginPath();
+function traceLand(context, polygons, project) {
+  context.beginPath();
   for (const polygon of polygons) {
     for (const ring of polygon) {
-      ring.forEach((point, index) => { const [x, y] = xy(point); index ? map.lineTo(x, y) : map.moveTo(x, y); });
-      map.closePath();
+      ring.forEach((point, index) => { const [x, y] = project(point); index ? context.lineTo(x, y) : context.moveTo(x, y); });
+      context.closePath();
     }
   }
 }
 
-function makeTexture(mapData) {
-  const { landPolygons, countryBorders, rivers, mountains } = mapData;
+function tracePolygon(context, polygon, project) {
+  context.beginPath();
+  for (const ring of polygon) {
+    ring.forEach((point, index) => { const [x, y] = project(point); index ? context.lineTo(x, y) : context.moveTo(x, y); });
+    context.closePath();
+  }
+}
+
+function makeTexture(mapData, maxTextureSize = 2048) {
+  const mapCanvas = document.createElement('canvas');
+  const width = Math.min(4096, Math.max(1024, maxTextureSize || 2048));
+  const height = Math.floor(width / 2);
+  mapCanvas.width = width;
+  mapCanvas.height = height;
+  const map = mapCanvas.getContext('2d', { alpha: false });
+  const xy = ([lon, lat]) => [(lon + 180) / 360 * width, (90 - lat) / 180 * height];
+  const { landPolygons, countryBorders, rivers, mountains, bathymetry, terrainRelief } = mapData;
   const ocean = map.createLinearGradient(0, 0, width, height);
   ocean.addColorStop(0, '#0b3855');
   ocean.addColorStop(.45, '#0b5770');
@@ -24,6 +32,30 @@ function makeTexture(mapData) {
   ocean.addColorStop(1, '#092d4a');
   map.fillStyle = ocean;
   map.fillRect(0, 0, width, height);
+
+  const depthColors = new Map([
+    [0, '#0c5670'], [200, '#0b506d'], [1000, '#0a4a67'], [2000, '#094361'],
+    [3000, '#083d5b'], [4000, '#073754'], [5000, '#06304e'], [6000, '#052a48'],
+    [7000, '#042441'], [8000, '#03203b'], [9000, '#031b35'], [10000, '#02172f'],
+  ]);
+  map.save();
+  map.lineJoin = 'round';
+  map.lineCap = 'round';
+  for (const layer of bathymetry?.layers || []) {
+    const color = depthColors.get(layer.depth);
+    if (!color) continue;
+    for (const polygon of layer.polygons) {
+      tracePolygon(map, polygon, xy);
+      map.fillStyle = color;
+      map.fill('evenodd');
+      if (layer.depth > 0) {
+        map.lineWidth = width / 4096;
+        map.strokeStyle = '#8de0e51b';
+        map.stroke();
+      }
+    }
+  }
+  map.restore();
 
   const currents = map.createRadialGradient(width * .48, height * .48, 70, width * .48, height * .48, width * .62);
   currents.addColorStop(0, '#4da1a31c');
@@ -59,11 +91,7 @@ function makeTexture(mapData) {
   land.addColorStop(.86, '#91a27b');
   land.addColorStop(1, '#d7ddd0');
   for (const polygon of landPolygons) {
-    map.beginPath();
-    for (const ring of polygon) {
-      ring.forEach((point, index) => { const [x, y] = xy(point); index ? map.lineTo(x, y) : map.moveTo(x, y); });
-      map.closePath();
-    }
+    tracePolygon(map, polygon, xy);
     map.fillStyle = land;
     map.fill('evenodd');
     map.shadowBlur = 0;
@@ -75,7 +103,7 @@ function makeTexture(mapData) {
 
   // Broad climate colors and relief give the vector land a little depth.
   map.save();
-  traceLand(landPolygons);
+  traceLand(map, landPolygons, xy);
   map.clip('evenodd');
   const glow = (lon, lat, rx, ry, color) => {
     const [x, y] = xy([lon, lat]);
@@ -92,19 +120,12 @@ function makeTexture(mapData) {
   glow(22, -3, 140, 210, '#c3ac6c47');
   glow(134, -25, 170, 90, '#d7b97f48');
 
-  const relief = [
-    [[-130,58],[-123,52],[-119,46],[-116,40],[-112,35],[-108,31],[-105,25]],
-    [[-74,8],[-73,0],[-72,-10],[-70,-20],[-69,-31],[-71,-42]],
-    [[-5,43],[3,45],[10,46],[16,47],[22,48]],
-    [[66,27],[73,31],[80,32],[88,30],[95,28],[103,29]],
-    [[-110,22],[-102,20],[-96,19],[-90,17]],
-    [[28,-3],[32,-12],[27,-19],[25,-26]],
-  ];
-  for (const line of relief) {
-    map.beginPath();
-    line.forEach((point, index) => { const [x, y] = xy(point); index ? map.lineTo(x, y) : map.moveTo(x, y); });
-    map.lineWidth = 7; map.strokeStyle = '#394c3750'; map.stroke();
-    map.lineWidth = 2.5; map.strokeStyle = '#e5d39a84'; map.stroke();
+  if (terrainRelief?.complete) {
+    map.globalCompositeOperation = 'multiply';
+    map.globalAlpha = .39;
+    map.drawImage(terrainRelief, 0, 0, width, height);
+    map.globalAlpha = 1;
+    map.globalCompositeOperation = 'source-over';
   }
   map.restore();
 
@@ -177,6 +198,7 @@ function makeTexture(mapData) {
     map.lineWidth = 3; map.strokeStyle = '#ffffff'; map.stroke();
   }
   map.restore();
+  return mapCanvas;
 }
 
 function compile(gl, type, source) {
@@ -261,7 +283,7 @@ export class Globe {
     if (!gl) throw new Error('이 브라우저에서 3D 그래픽을 사용할 수 없습니다.');
     this.gl = gl;
     if (!Array.isArray(mapData?.landPolygons) || !mapData.landPolygons.length) throw new Error('정밀한 육지 경계 데이터를 찾지 못했습니다.');
-    makeTexture(mapData);
+    this.mapCanvas = makeTexture(mapData, gl.getParameter(gl.MAX_TEXTURE_SIZE));
     this.setup();
     this.resizeObserver = new ResizeObserver(() => this.resize());
     this.resizeObserver.observe(canvas.parentElement);
@@ -297,12 +319,13 @@ export class Globe {
     // The sphere's v=0 row is the north pole, matching the canvas texture's top row.
     // Flipping here mirrors land north-to-south while city markers keep their real coordinates.
     gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, false);
-    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, mapCanvas);
+    gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, this.mapCanvas);
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.REPEAT);
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR_MIPMAP_LINEAR);
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
     gl.generateMipmap(gl.TEXTURE_2D);
+    this.mapCanvas.width = 1; this.mapCanvas.height = 1; this.mapCanvas = null;
     this.texture = texture;
     gl.enable(gl.BLEND); gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
   }

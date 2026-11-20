@@ -166,23 +166,40 @@ function setRotationButton() {
   document.querySelector('.rotate-label').textContent = globe?.autoRotate ? '회전 중' : '회전 시작';
 }
 
+function loadReliefImage() {
+  return new Promise((resolve, reject) => {
+    const image = new Image();
+    image.onload = () => resolve(image);
+    image.onerror = () => reject(new Error('육지 지형 음영을 불러오지 못했습니다.'));
+    image.src = '/terrain-relief.jpg';
+  });
+}
+
 buildPlaces();
 try {
-  const responses = await Promise.all([
+  const [landResponse, featuresResponse, bathymetryResponse, terrainRelief] = await Promise.all([
     fetch('/world-land.json', { cache: 'force-cache' }),
     fetch('/world-features.json', { cache: 'force-cache' }),
+    fetch('/world-bathymetry.json', { cache: 'force-cache' }),
+    loadReliefImage(),
   ]);
-  if (responses.some(response => !response.ok)) throw new Error('지구 지도 자료를 불러오지 못했습니다.');
-  const [land, features] = await Promise.all(responses.map(response => response.json()));
+  if ([landResponse, featuresResponse, bathymetryResponse].some(response => !response.ok)) {
+    throw new Error('지구 지도 자료를 불러오지 못했습니다.');
+  }
+  const [land, features, bathymetry] = await Promise.all([
+    landResponse.json(),
+    featuresResponse.json(),
+    bathymetryResponse.json(),
+  ]);
   buildMapLabels(features);
-  globe = new Globe(canvas, { ...features, landPolygons: land.polygons }, updateMarkers);
+  globe = new Globe(canvas, { ...features, landPolygons: land.polygons, bathymetry, terrainRelief }, updateMarkers);
   stage.classList.remove('no-webgl');
 } catch (error) {
   stage.classList.add('no-webgl');
   $('fallback-message').hidden = false;
   $('fallback-message').textContent = error instanceof Error && error.message.includes('3D 그래픽')
     ? '이 브라우저에서 3D 그래픽을 사용할 수 없습니다. 다른 브라우저에서 열어주세요.'
-    : '정밀한 지구 지형과 지명 자료를 불러오지 못했습니다. 모아 화면을 새로고침해주세요.';
+    : '해안선·해저 수심·지형 음영 자료를 불러오지 못했습니다. 모아 화면을 새로고침해주세요.';
   $('rotate-toggle').disabled = true;
   $('zoom-in').disabled = true;
   $('zoom-out').disabled = true;

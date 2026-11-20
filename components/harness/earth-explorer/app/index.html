@@ -12,7 +12,8 @@
       <canvas id="globe-canvas" aria-label="회전하고 확대할 수 있는 3D 지구본"></canvas>
       <div id="geo-labels" class="geo-label-layer" aria-hidden="true"></div>
       <div id="markers" class="marker-layer" aria-label="주요 도시"></div>
-      <div class="stage-topline"><span class="live-indicator"></span><span>EARTH / 3D ATLAS</span><span class="stage-topline-separator"></span><span>국가 경계 · 강 · 산맥</span></div>
+      <div class="stage-topline"><span class="live-indicator"></span><span>EARTH / 3D ATLAS</span><span class="stage-topline-separator"></span><span>해저 지형 · 고도 음영 · 상세 해안선</span></div>
+      <div class="depth-legend" aria-label="해저 수심 범례"><span>해저 수심</span><div class="depth-ramp"></div><div class="depth-values"><small>0 m</small><small>10,000 m</small></div></div>
       <div class="stage-instructions"><span class="mouse-glyph">⤧</span> 드래그하여 회전 <i></i> 휠 또는 + / − 로 확대</div>
       <div class="stage-coordinates"><span class="coordinate-cross">⌖</span><div><small>현재 선택 위치</small><strong id="stage-place">서울 · 대한민국</strong></div><span class="coordinate-divider"></span><code id="stage-coords">37.57° N&nbsp;&nbsp; 126.98° E</code></div>
       <div class="fallback-message" id="fallback-message" hidden>이 브라우저에서 3D 그래픽을 사용할 수 없습니다.</div>
@@ -26,7 +27,7 @@
       </section>
       <div class="places-heading"><div><span>가까운 곳부터 둘러보기</span><small id="places-count">12 PLACES</small></div><span class="places-rule"></span></div>
       <nav id="place-list" class="place-list" aria-label="둘러볼 도시"></nav>
-      <div class="panel-footnote"><span class="footnote-icon">✦</span><p>국가 경계와 주요 강·산맥을 표시했어요. 확대하면 지명이 단계별로 나타납니다.<br><a class="source-credit" href="https://www.naturalearthdata.com/downloads/50m-cultural-vectors/" target="_blank" rel="noreferrer">국가 자료 ↗</a> · <a class="source-credit" href="https://www.naturalearthdata.com/downloads/50m-physical-vectors/" target="_blank" rel="noreferrer">지형 자료 ↗</a><span class="source-note"> · Natural Earth 1:50m · 위성 사진은 미포함</span></p></div>
+      <div class="panel-footnote"><span class="footnote-icon">✦</span><p>해저 수심 색조와 육지 지형 음영, 더 세밀한 해안선을 표시해요. 확대하면 지명이 단계별로 나타납니다.<br><a class="source-credit" href="https://www.naturalearthdata.com/downloads/10m-physical-vectors/" target="_blank" rel="noreferrer">해안선·해저 자료 ↗</a> · <a class="source-credit" href="https://www.naturalearthdata.com/downloads/10m-raster-data/10m-shaded-relief/" target="_blank" rel="noreferrer">높낮이 음영 ↗</a><span class="source-note"> · 지형 데이터는 오프라인에 저장됩니다</span></p></div>
     </aside>
   </div>
 </main></body></html>

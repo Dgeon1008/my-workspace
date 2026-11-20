@@ -85,6 +85,10 @@ button:focus-visible, input:focus-visible, a:focus-visible { outline: 2px solid 
 .map-pin.selected { background: #0b352eeb; box-shadow: 0 0 0 4px #67e7ba1c, 0 5px 20px #00000066, inset 0 1px #ffffff28; }
 .map-pin.hidden { visibility: hidden; pointer-events: none; }
 .stage-topline { position: absolute; z-index: 4; top: 20px; left: 21px; display: flex; align-items: center; gap: 9px; color: #a9c4be; font-size: 8px; letter-spacing: 1.5px; pointer-events: none; }
+.depth-legend { position: absolute; z-index: 4; top: 17px; right: 20px; width: 150px; padding: 9px 11px 8px; border: 1px solid #c0e8dc22; border-radius: 10px; background: #06131dc2; color: #b8d2cc; box-shadow: 0 7px 20px #00000020, inset 0 1px #ffffff0c; -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); pointer-events: none; }
+.depth-legend>span { display: block; margin-bottom: 7px; color: #d8eee6; font-size: 8px; font-weight: 650; letter-spacing: .7px; }
+.depth-ramp { height: 6px; border-radius: 999px; background: linear-gradient(90deg,#0c5670,#0a4a67 28%,#073754 58%,#042441 82%,#02172f); box-shadow: 0 0 12px #2d9fb333; }
+.depth-values { display: flex; justify-content: space-between; margin-top: 5px; color: #829d98; font: 7px ui-monospace,Consolas,monospace; }
 .live-indicator { width: 6px; height: 6px; border-radius: 50%; background: #83e0ac; box-shadow: 0 0 12px #7be8bf; animation: indicator-pulse 2s ease-in-out infinite; }
 @keyframes indicator-pulse { 50% { box-shadow: 0 0 2px #7be8bf; opacity: .58; } }
 .stage-topline-separator { height: 11px; width: 1px; background: #a9c4be38; }
@@ -167,6 +171,9 @@ button:focus-visible, input:focus-visible, a:focus-visible { outline: 2px solid 
   .atlas-layout { display: flex; flex-direction: column; gap: 10px; padding: 10px; }
   .globe-stage { min-height: 390px; height: min(59vh, 510px); border-radius: 17px; }
   .stage-topline { top: 13px; left: 13px; gap: 6px; font-size: 7px; }
+  .depth-legend { top: auto; right: auto; bottom: 56px; left: 11px; width: 132px; padding: 7px 9px 6px; }
+  .depth-legend>span { margin-bottom: 5px; font-size: 7px; }
+  .depth-values { margin-top: 4px; font-size: 6px; }
   .stage-instructions { bottom: 12px; left: 11px; gap: 5px; padding: 7px 8px; font-size: 7px; }
   .stage-coordinates { right: 10px; bottom: 11px; gap: 6px; max-width: 57%; padding: 8px; }
   .stage-coordinates small { font-size: 7px; }
