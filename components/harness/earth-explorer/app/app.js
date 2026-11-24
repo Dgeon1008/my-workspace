@@ -26,6 +26,43 @@ let globe;
 let lastPointer = null;
 let pinchStart = null;
 const pointers = new Map();
+const defaultLayerVisibility = { borders: true, terrain: true, cities: true, bathymetry: true };
+const layerPreferenceKey = 'moa:earth-explorer:layers:v1';
+
+function readLayerVisibility() {
+  try {
+    const saved = JSON.parse(localStorage.getItem(layerPreferenceKey) || 'null');
+    return Object.fromEntries(Object.entries(defaultLayerVisibility).map(([key, fallback]) => [
+      key, typeof saved?.[key] === 'boolean' ? saved[key] : fallback,
+    ]));
+  } catch {
+    return { ...defaultLayerVisibility };
+  }
+}
+
+let layerVisibility = readLayerVisibility();
+
+function syncLayerControls() {
+  for (const [key, visible] of Object.entries(layerVisibility)) {
+    const control = $(`layer-${key}`);
+    if (control) control.checked = visible;
+  }
+  $('layer-count').textContent = String(Object.values(layerVisibility).filter(Boolean).length);
+  const depthLegend = $('depth-legend');
+  if (depthLegend) depthLegend.hidden = !layerVisibility.bathymetry;
+}
+
+function setLayerVisibility(key, visible) {
+  if (!(key in defaultLayerVisibility) || layerVisibility[key] === visible) return;
+  if (globe && key !== 'cities' && !globe.setLayerVisibility(key, visible)) {
+    $(`layer-${key}`).checked = layerVisibility[key];
+    return;
+  }
+  layerVisibility = { ...layerVisibility, [key]: visible };
+  try { localStorage.setItem(layerPreferenceKey, JSON.stringify(layerVisibility)); } catch {}
+  syncLayerControls();
+  updateMarkers();
+}
 
 const coordinate = (value, positive, negative, digits = 2) => `${Math.abs(value).toFixed(digits)}° ${value >= 0 ? positive : negative}`;
 const detailedCoordinate = place => `${coordinate(place.lat, 'N', 'S', 4)}   ${coordinate(place.lon, 'E', 'W', 4)}`;
@@ -126,7 +163,7 @@ function updateMarkers() {
     const point = globe.project(place.lat, place.lon);
     marker.style.left = `${point.x}px`;
     marker.style.top = `${point.y}px`;
-    const shown = point.visible && (place.id === selected.id || globe.zoom >= 1.82);
+    const shown = layerVisibility.cities && point.visible && (place.id === selected.id || globe.zoom >= 1.82);
     marker.classList.toggle('hidden', !shown);
     marker.classList.toggle('selected', place.id === selected.id);
     if (shown) {
@@ -134,7 +171,12 @@ function updateMarkers() {
       occupied.push({ left: point.x - 8, right: point.x - 8 + width, top: point.y - height / 2, bottom: point.y + height / 2 });
     }
   }
-  const activeLabels = mapLabels.filter(label => globe.zoom >= label.minZoom && (label.maxZoom === undefined || globe.zoom <= label.maxZoom))
+  const activeLabels = mapLabels.filter(label =>
+    globe.zoom >= label.minZoom &&
+    (label.maxZoom === undefined || globe.zoom <= label.maxZoom) &&
+    (label.kind !== 'country' || layerVisibility.borders) &&
+    (!['mountain', 'river'].includes(label.kind) || layerVisibility.terrain),
+  )
     .sort((a, b) => a.priority - b.priority);
   const visibleLabels = new Set();
   for (const label of activeLabels) {
@@ -176,6 +218,7 @@ function loadReliefImage() {
 }
 
 buildPlaces();
+syncLayerControls();
 try {
   const [landResponse, featuresResponse, bathymetryResponse, terrainRelief] = await Promise.all([
     fetch('/world-land.json', { cache: 'force-cache' }),
@@ -192,7 +235,7 @@ try {
     bathymetryResponse.json(),
   ]);
   buildMapLabels(features);
-  globe = new Globe(canvas, { ...features, landPolygons: land.polygons, bathymetry, terrainRelief }, updateMarkers);
+  globe = new Globe(canvas, { ...features, landPolygons: land.polygons, bathymetry, terrainRelief, layerVisibility }, updateMarkers);
   stage.classList.remove('no-webgl');
 } catch (error) {
   stage.classList.add('no-webgl');
@@ -217,6 +260,28 @@ $('search-form').addEventListener('submit', event => {
   }
 });
 $('place-query').addEventListener('input', event => event.currentTarget.setCustomValidity(''));
+$('layers-toggle').addEventListener('click', () => {
+  const menu = $('layer-menu');
+  const expanded = $('layers-toggle').getAttribute('aria-expanded') === 'true';
+  $('layers-toggle').setAttribute('aria-expanded', String(!expanded));
+  menu.hidden = expanded;
+});
+for (const key of Object.keys(defaultLayerVisibility)) {
+  $(`layer-${key}`).addEventListener('change', event => setLayerVisibility(key, event.currentTarget.checked));
+}
+document.addEventListener('pointerdown', event => {
+  if (event.target instanceof Element && !event.target.closest('.layer-control')) {
+    $('layer-menu').hidden = true;
+    $('layers-toggle').setAttribute('aria-expanded', 'false');
+  }
+});
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape' && !$('layer-menu').hidden) {
+    $('layer-menu').hidden = true;
+    $('layers-toggle').setAttribute('aria-expanded', 'false');
+    $('layers-toggle').focus();
+  }
+});
 $('rotate-toggle').addEventListener('click', () => { globe?.setAutoRotate(!globe.autoRotate); setRotationButton(); });
 $('zoom-in').addEventListener('click', () => globe?.zoomBy(.16));
 $('zoom-out').addEventListener('click', () => globe?.zoomBy(-.16));
@@ -224,7 +289,7 @@ $('reset-view').addEventListener('click', () => { selectPlace(places[0]); globe?
 document.querySelector('.atlas-brand').addEventListener('click', event => { event.preventDefault(); $('reset-view').click(); });
 
 stage.addEventListener('pointerdown', event => {
-  if (event.target instanceof HTMLElement && event.target.closest('.map-pin')) return;
+  if (event.target instanceof Element && event.target.closest('.map-pin, .layer-control')) return;
   stage.setPointerCapture(event.pointerId);
   pointers.set(event.pointerId, { x: event.clientX, y: event.clientY });
   if (pointers.size === 1) lastPointer = { x: event.clientX, y: event.clientY };
@@ -260,4 +325,8 @@ stage.addEventListener('wheel', event => {
   event.preventDefault();
   globe?.zoomBy(event.deltaY < 0 ? .09 : -.09);
 }, { passive: false });
-window.addEventListener('beforeunload', () => globe?.destroy(), { once: true });
+const solarClock = new Intl.DateTimeFormat('ko-KR', { hour: '2-digit', minute: '2-digit', hourCycle: 'h23' });
+function updateSolarClock() { $('solar-clock').textContent = solarClock.format(new Date()); }
+updateSolarClock();
+const solarClockTimer = window.setInterval(updateSolarClock, 30_000);
+window.addEventListener('beforeunload', () => { window.clearInterval(solarClockTimer); globe?.destroy(); }, { once: true });

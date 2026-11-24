@@ -19,6 +19,9 @@ function seedHarnessModules(db: DatabaseSync) {
       : null;
     seed.run(definition.id, definition.moduleKey, definition.name, legacy ? legacyCategory : fallbackCategory, position);
   }
+  // Rename the shipped module label while preserving any user-customized name.
+  db.prepare("UPDATE harness_modules SET name=? WHERE id=? AND lower(name) IN (?, ?, ?, ?)")
+    .run('태양계 여행', 'space-explorer', '우주 탐험', '은하 탐험', 'space explorer', 'galaxy explorer');
 }
 
 export function initializeHarnessModules(db: DatabaseSync) {

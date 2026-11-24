@@ -13,7 +13,18 @@
       <div id="geo-labels" class="geo-label-layer" aria-hidden="true"></div>
       <div id="markers" class="marker-layer" aria-label="주요 도시"></div>
       <div class="stage-topline"><span class="live-indicator"></span><span>EARTH / 3D ATLAS</span><span class="stage-topline-separator"></span><span>해저 지형 · 고도 음영 · 상세 해안선</span></div>
-      <div class="depth-legend" aria-label="해저 수심 범례"><span>해저 수심</span><div class="depth-ramp"></div><div class="depth-values"><small>0 m</small><small>10,000 m</small></div></div>
+      <div class="layer-control">
+        <button id="layers-toggle" class="layers-toggle" type="button" aria-expanded="false" aria-controls="layer-menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 8 4-8 4-8-4 8-4Z"/><path d="m4 12 8 4 8-4M4 17l8 4 8-4"/></svg><span>지도 레이어</span><span id="layer-count" class="layer-count">4</span></button>
+        <section id="layer-menu" class="layer-menu" aria-label="지도 레이어 설정" hidden>
+          <div class="layer-menu-heading"><strong>지도 레이어</strong><small>표시할 항목을 선택하세요</small></div>
+          <label class="layer-option" for="layer-borders"><span class="layer-copy"><strong>국가 경계</strong><small>국가 사이의 경계선</small></span><input id="layer-borders" type="checkbox" checked></label>
+          <label class="layer-option" for="layer-terrain"><span class="layer-copy"><strong>지형 음영</strong><small>고도 음영 · 산맥 · 강</small></span><input id="layer-terrain" type="checkbox" checked></label>
+          <label class="layer-option" for="layer-cities"><span class="layer-copy"><strong>도시명</strong><small>주요 도시 위치와 이름</small></span><input id="layer-cities" type="checkbox" checked></label>
+          <label class="layer-option" for="layer-bathymetry"><span class="layer-copy"><strong>해저 지형</strong><small>깊이에 따른 바다 색상</small></span><input id="layer-bathymetry" type="checkbox" checked></label>
+          <div class="solar-status"><span class="solar-symbol" aria-hidden="true">◐</span><span class="solar-copy"><strong>낮과 밤</strong><small>현재 시각 기준으로 표시</small></span><time id="solar-clock">--:--</time></div>
+        </section>
+      </div>
+      <div id="depth-legend" class="depth-legend" aria-label="해저 수심 범례"><span>해저 수심</span><div class="depth-ramp"></div><div class="depth-values"><small>0 m</small><small>10,000 m</small></div></div>
       <div class="stage-instructions"><span class="mouse-glyph">⤧</span> 드래그하여 회전 <i></i> 휠 또는 + / − 로 확대</div>
       <div class="stage-coordinates"><span class="coordinate-cross">⌖</span><div><small>현재 선택 위치</small><strong id="stage-place">서울 · 대한민국</strong></div><span class="coordinate-divider"></span><code id="stage-coords">37.57° N&nbsp;&nbsp; 126.98° E</code></div>
       <div class="fallback-message" id="fallback-message" hidden>이 브라우저에서 3D 그래픽을 사용할 수 없습니다.</div>

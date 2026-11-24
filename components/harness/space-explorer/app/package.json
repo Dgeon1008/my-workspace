@@ -1,0 +1,9 @@
+{
+  "name": "moa-solar-system-journey",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node ../../../../scripts/harness-project.mjs --project space-explorer",
+    "dev": "node ../../../../scripts/harness-project.mjs --project space-explorer"
+  }
+}

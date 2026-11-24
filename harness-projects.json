@@ -34,5 +34,14 @@
     "factory": "createAppServer",
     "port": 4178,
     "settleMs": 120
+  },
+  "space-explorer": {
+    "id": "space-explorer",
+    "name": "태양계 여행",
+    "root": "components/harness/space-explorer/app",
+    "entry": "server.mjs",
+    "factory": "createAppServer",
+    "port": 4179,
+    "settleMs": 120
   }
 }

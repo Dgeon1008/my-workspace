@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ko" data-moa-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <meta name="theme-color" content="#08121b">
+  <title>태양계 여행 · 모아</title>
+  <link rel="stylesheet" href="/style.css">
+  <script type="module" src="/app.js"></script>
+</head>
+<body>
+  <div class="cosmos-app">
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="태양계 여행 처음으로">
+        <span class="brand-mark" aria-hidden="true"><i></i><b></b></span>
+        <span><strong>태양계 여행</strong><small>MOA SOLAR SYSTEM · INTERACTIVE JOURNEY</small></span>
+      </a>
+      <div class="top-actions">
+        <span class="live-tag"><i></i> 인터랙티브 여정</span>
+        <button id="reset-view" class="icon-button reset-button" type="button" title="태양계 시작점으로 이동" aria-label="태양계 시작점으로 이동">↺</button>
+      </div>
+    </header>
+
+    <main id="top" class="journey">
+      <section class="intro">
+        <div>
+          <p class="eyebrow"><span>01</span> A JOURNEY THROUGH OUR SOLAR SYSTEM</p>
+          <h1>태양과 행성을 <em>가까이 탐험하세요.</em></h1>
+          <p class="intro-copy">태양 주위를 도는 행성과 위성을 살펴보고, 궤도·크기·거리를 비교해 보세요.</p>
+        </div>
+        <div class="intro-badge"><span class="badge-orbit" aria-hidden="true">✦</span><span><small>지금 보고 있는 곳</small><strong id="current-stage-short">태양계</strong></span></div>
+      </section>
+
+      <nav class="stage-nav" aria-label="태양계 바깥 탐험 단계">
+        <div class="stage-rail" aria-hidden="true"><span id="stage-rail-fill"></span></div>
+        <button class="stage-step is-active" type="button" data-stage="0" aria-current="step"><span class="step-number">01</span><span class="step-name">태양계</span><small>행성과 위성</small></button>
+        <button class="stage-step" type="button" data-stage="34"><span class="step-number">02</span><span class="step-name">카이퍼 벨트</span><small>얼음 천체</small></button>
+        <button class="stage-step" type="button" data-stage="67"><span class="step-number">03</span><span class="step-name">태양권계면</span><small>태양풍의 경계</small></button>
+        <button class="stage-step" type="button" data-stage="100"><span class="step-number">04</span><span class="step-name">오르트 구름</span><small>태양계의 먼 가장자리</small></button>
+      </nav>
+
+      <section class="viewport-card" aria-label="태양계 탐험 화면">
+        <canvas id="cosmos-canvas" aria-label="태양과 행성, 선택한 행성의 위성을 탐험하는 3D 화면"></canvas>
+        <canvas id="labels-canvas" aria-hidden="true"></canvas>
+        <p id="graphics-error" class="graphics-error" role="status" hidden></p>
+        <div class="scene-topline"><span class="scene-dot"></span><span id="scene-kicker">SOLAR SYSTEM</span><i></i><span id="scene-subtitle">행성들이 태양을 도는 우리 동네</span></div>
+        <div class="scale-readout" aria-live="polite"><small>현재 탐험 단계</small><strong id="scale-name">태양계</strong><span id="scale-distance">해왕성 궤도 · 약 30 AU</span></div>
+        <div class="orbit-controls" role="group" aria-label="행성 공전 조절">
+          <button id="orbit-toggle" type="button" aria-pressed="false" aria-label="행성 공전 일시 정지">Ⅱ 공전 정지</button>
+          <button id="orbit-speed" type="button" aria-label="공전 속도 변경">속도 1×</button>
+        </div>
+        <div id="focus-controls" class="focus-controls" hidden><span><small>행성 가까이 보기</small><strong id="focus-name">지구</strong></span><button id="back-to-system" type="button">전체 궤도 보기 <span aria-hidden="true">↩</span></button></div>
+        <div class="canvas-caption"><span class="caption-star">✦</span><span id="canvas-caption-text">태양을 중심으로 여덟 행성이 돌고 있어요.</span></div>
+        <div class="canvas-tools">
+          <span class="drag-hint"><span aria-hidden="true">⤧</span> 드래그해 시야 회전</span>
+          <div class="zoom-tools" aria-label="탐험 범위 조절">
+            <button id="zoom-out" type="button" aria-label="태양계나 행성 축소">−</button>
+            <span id="zoom-label">1.0×</span>
+            <button id="zoom-in" type="button" aria-label="태양계나 행성 확대">＋</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="timeline-panel" aria-label="날짜와 시간에 따른 행성 위치">
+        <div class="timeline-heading">
+          <div><p class="card-kicker">SOLAR SYSTEM TIMELINE</p><h2>날짜·시간축</h2><p>시간을 움직여 행성과 위성의 위치 변화를 살펴보세요.</p></div>
+          <label class="timeline-date-control"><span class="sr-only">관측 날짜와 시간</span><input id="simulation-datetime" type="datetime-local" min="1800-01-01T00:00" max="2050-12-31T23:00" step="3600"></label>
+        </div>
+        <div class="timeline-slider-row"><div class="timeline-years" aria-hidden="true"><span>1800</span><span>1850</span><span>1900</span><span>1950</span><span>2000</span><span>2050</span></div><input id="simulation-timeline" type="range" min="0" max="1" step="1" aria-label="태양계 시뮬레이션 날짜와 시간"></div>
+        <div class="timeline-footer"><strong id="simulation-date-label" aria-live="polite"></strong><span>공전 재생 중에는 날짜가 빠르게 흐릅니다.</span><button id="timeline-today" type="button">현재 시각으로</button></div>
+      </section>
+
+      <section class="body-explorer" aria-labelledby="body-explorer-title">
+        <div class="section-heading"><div><p class="card-kicker">SOLAR SYSTEM FIELD GUIDE</p><h2 id="body-explorer-title">행성을 선택해 가까이 보기</h2><p>목록이나 궤도 위 행성을 누르면 확대됩니다. 위성을 선택해 행성 주변도 둘러보세요.</p></div><span class="section-orbit" aria-hidden="true">◉</span></div>
+        <div id="planet-picker" class="planet-picker" role="group" aria-label="행성 선택"></div>
+        <div class="body-detail-grid">
+          <article class="body-detail-card planet-detail-card" aria-live="polite">
+            <div class="body-title-row"><span id="planet-swatch" class="body-swatch" aria-hidden="true"></span><div><small id="planet-kind">행성 · 암석 행성</small><h3 id="planet-name">지구</h3></div></div>
+            <p id="planet-summary" class="body-summary"></p>
+            <div class="body-stats"><div><small>태양과의 평균 거리</small><strong id="planet-distance">1 AU</strong></div><div><small>지름</small><strong id="planet-diameter">12,742 km</strong></div><div><small>공전 주기</small><strong id="planet-year">365.25일</strong></div></div>
+          </article>
+          <article class="body-detail-card moon-detail-card">
+            <div class="moon-heading"><div><p class="card-kicker">NATURAL SATELLITES</p><h3 id="moon-heading">지구의 위성</h3></div><small id="moon-count"></small></div>
+            <div id="moon-picker" class="moon-picker" role="group" aria-label="위성 선택"></div>
+            <div id="moon-detail" class="moon-detail" aria-live="polite"><strong id="moon-name">달</strong><span id="moon-distance"></span><p id="moon-summary"></p></div>
+            <p id="moon-empty" class="moon-empty" hidden>이 행성에는 알려진 자연 위성이 없습니다.</p>
+          </article>
+        </div>
+      </section>
+
+
+      <section class="compare-panel" aria-labelledby="compare-title">
+        <div class="section-heading compare-heading"><div><p class="card-kicker">COMPARE THE PLANETS</p><h2 id="compare-title">궤도와 크기를 비교해 보세요</h2><p id="comparison-note">태양으로부터의 평균 거리를 AU 단위로 표시합니다.</p></div><div class="compare-tabs" role="group" aria-label="비교 기준"><button type="button" data-compare="distance" aria-pressed="true">궤도 거리</button><button type="button" data-compare="size" aria-pressed="false">행성 크기</button></div></div>
+        <div id="planet-comparison" class="planet-comparison" role="group" aria-label="행성 비교"></div>
+      </section>
+
+      <section class="info-grid" aria-label="우주 정보">
+        <article class="info-card destination-card">
+          <p class="card-kicker">NEXT MILESTONE</p>
+          <div class="destination-row"><span class="destination-icon" aria-hidden="true">↗</span><div><h2 id="next-title">카이퍼 벨트</h2><p id="next-copy">해왕성 바깥, 얼음 천체와 왜소행성들이 모여 있는 고리 모양의 영역입니다.</p></div></div>
+          <button id="go-next" class="text-button" type="button">다음 지점으로 이동 <span aria-hidden="true">→</span></button>
+        </article>
+        <article class="info-card fact-card">
+          <p class="card-kicker">SPACE, IN PERSPECTIVE</p>
+          <h2 id="fact-heading">우리 태양계의 이웃</h2>
+          <div class="fact-pair"><div><small id="fact-label-one">해왕성까지</small><strong id="fact-value-one">약 30 <i>AU</i></strong></div><div><small id="fact-label-two">빛이 오는 데</small><strong id="fact-value-two">약 4.5 <i>시간</i></strong></div></div>
+          <p class="fact-note" id="fact-note">행성 궤도 간격은 한눈에 보기 쉽도록 화면에서 압축해 표현했어요.</p>
+        </article>
+      </section>
+
+      <footer class="source-footer"><span>태양과 행성의 구체 크기는 차이를 보기 쉽게 압축해 표현하되 태양이 가장 크게 보이도록 했습니다. 행성 위치는 1800~2050년 JPL 근사 궤도식으로 계산하며, 위성 위상과 천체 간격은 시각화용 근삿값입니다.</span><span>자료: <a href="https://ssd.jpl.nasa.gov/planets/approx_pos.html" target="_blank" rel="noreferrer">JPL 행성 궤도 요소</a> · <a href="https://nssdc.gsfc.nasa.gov/planetary/factsheet/plutofact.html" target="_blank" rel="noreferrer">NASA 명왕성</a> · <a href="https://science.nasa.gov/solar-system/moons/facts/" target="_blank" rel="noreferrer">NASA 위성</a> · <a href="https://science.nasa.gov/mission/voyager/interstellar-mission/" target="_blank" rel="noreferrer">NASA 보이저</a> · <a href="https://science.nasa.gov/solar-system/oort-cloud/facts/" target="_blank" rel="noreferrer">NASA 오르트 구름</a></span></footer>
+    </main>
+  </div>
+</body>
+</html>

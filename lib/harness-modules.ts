@@ -42,4 +42,11 @@ export const harnessModuleDefinitions = [
     categoryId: null,
     legacyNames: ['earth explorer', '지구 탐험', '지구본'],
   },
+  {
+    id: 'space-explorer',
+    moduleKey: 'space-explorer',
+    name: '태양계 여행',
+    categoryId: null,
+    legacyNames: ['space explorer', '우주 탐험', '태양계 여행', '은하 탐험'],
+  },
 ] as const;
